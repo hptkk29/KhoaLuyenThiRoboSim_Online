@@ -4,7 +4,8 @@ import Footer from '../components/Footer'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 
 const GOOGLE_SHEET_WEBHOOK_URL =
-  import.meta.env.VITE_GOOGLE_SHEET_WEBHOOK_URL || 'GOOGLE_APPS_SCRIPT_WEB_APP_URL'
+  import.meta.env.VITE_GOOGLE_SHEET_WEBHOOK_URL ||
+  'https://script.google.com/macros/s/AKfycby_PIwLWQ7h-lS-WWBVr12m3mvx6rt40xJQgtaj40lB1sYlWELZoayMeTbrtY589K7qlg/exec'
 
 const CENTERS = [
   'Cơ sở 1: 60 Lê Lợi',
@@ -75,7 +76,9 @@ function RegistrationForm() {
       await fetch(GOOGLE_SHEET_WEBHOOK_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8',
+        },
         body: JSON.stringify({
           parentName: form.parentName,
           phone: form.phone,
