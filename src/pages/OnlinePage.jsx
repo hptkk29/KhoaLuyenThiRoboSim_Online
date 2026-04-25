@@ -46,7 +46,10 @@ function pad(n) { return String(Math.max(0, n)).padStart(2, '0') }
 function GuideVideo({ videoId }) {
   const [playing, setPlaying] = useState(false)
   return (
-    <div className="vph" onClick={() => !playing && setPlaying(true)} style={{ cursor: playing ? 'default' : 'pointer' }}>
+    <div
+      className={`vph${playing ? ' playing' : ''}`}
+      onClick={() => !playing && setPlaying(true)}
+    >
       {playing ? (
         <iframe
           className="vph-iframe"
@@ -57,6 +60,12 @@ function GuideVideo({ videoId }) {
         />
       ) : (
         <>
+          <img
+            src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+            className="vph-thumb"
+            alt="Thumbnail video hướng dẫn"
+            onError={e => { e.currentTarget.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` }}
+          />
           <div className="play-btn">▶</div>
           <p>Hướng dẫn đăng ký tài khoản SataWorld và mua khóa học</p>
           <span>3–4 phút · HD · Phụ đề tiếng Việt</span>
@@ -69,7 +78,10 @@ function GuideVideo({ videoId }) {
 function TestiVideo({ videoId }) {
   const [playing, setPlaying] = useState(false)
   return (
-    <div className="tv-ph" onClick={() => !playing && setPlaying(true)}>
+    <div
+      className={`tv-ph${playing ? ' playing' : ''}`}
+      onClick={() => !playing && setPlaying(true)}
+    >
       {playing ? (
         <iframe
           className="tv-iframe"
@@ -80,6 +92,13 @@ function TestiVideo({ videoId }) {
         />
       ) : (
         <>
+          <img
+            src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+            className="tv-thumb"
+            alt="Thumbnail video cảm nhận"
+            onError={e => { e.currentTarget.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` }}
+          />
+          <div className="tv-overlay" />
           <div className="tplay">▶</div>
           <p>Video cảm nhận · Bấm để xem</p>
         </>
