@@ -9,7 +9,7 @@ const ZALO_URL = 'https://zalo.me/0818823720'
 const RULES_URL = 'https://drive.google.com/drive/folders/12DTFji_NWDg_i3d1SGgjKKp8vxjF1seL?usp=sharing'
 
 // Link video hướng dẫn đăng ký (thay bằng ID YouTube khi cần)
-const GUIDE_VIDEO_ID = 'IhWurvdUsaQ'
+const GUIDE_VIDEO_ID = 'mgP0t6clP2A'
 
 // Link 3 video cảm nhận phụ huynh (thay từng cái khi cần)
 const TESTI_VIDEO_IDS = [
@@ -100,7 +100,7 @@ function TestiVideo({ videoId }) {
           />
           <div className="tv-overlay" />
           <div className="tplay">▶</div>
-          <p>Video cảm nhận · Bấm để xem</p>
+          <p>Bấm để xem</p>
         </>
       )}
     </div>
@@ -721,7 +721,7 @@ export default function OnlinePage() {
               <div className="tq">"Con học 3 tuần, từ chỗ không biết bắt đầu từ đâu đến khi thi thử đạt 85% điểm. Điều tôi thích nhất là AI chấm bài ngay — tôi biết chắc con hiểu bài trước khi học tiếp, khác hoàn toàn so với xem YouTube."</div>
               <div className="ta">
                 <div className="tav">NA</div>
-                <div><div className="tn">Anh Ngọc Anh</div><div className="ti">Phụ huynh học sinh lớp 6 · Đà Nẵng</div></div>
+                <div><div className="tn">Anh Ngọc Anh</div><div className="ti">Phụ huynh bạn Duy Tùng · Đà Nẵng</div></div>
               </div>
               <TestiVideo videoId={TESTI_VIDEO_IDS[0]} />
             </div>
@@ -731,7 +731,7 @@ export default function OnlinePage() {
               <div className="tq">"Ban đầu lo con học online không hiệu quả. Nhưng 27.000 đồng mỗi buổi — rẻ hơn cả nửa cốc trà sữa — mà con tiến bộ rõ rệt sau 2 tuần. Con học hào hứng và làm được bài tập thực hành rất tốt."</div>
               <div className="ta">
                 <div className="tav">TS</div>
-                <div><div className="tn">Anh Trường Sơn</div><div className="ti">Phụ huynh học sinh lớp 7 · Đà Nẵng</div></div>
+                <div><div className="tn">Anh Trường Sơn</div><div className="ti">Phụ huynh bạn Minh Châu · Đà Nẵng</div></div>
               </div>
               <TestiVideo videoId={TESTI_VIDEO_IDS[1]} />
             </div>
@@ -741,7 +741,7 @@ export default function OnlinePage() {
               <div className="tq">"Con thi Robotics năm ngoái không vào được vòng chung kết vì không có chiến lược. Năm nay học khóa này, con tự làm được bài tập và hiểu rõ cách sắp xếp thứ tự nhiệm vụ. Tự tin hơn hẳn khi bước vào phòng thi!"</div>
               <div className="ta">
                 <div className="tav">MT</div>
-                <div><div className="tn">Chị Mỹ Trang</div><div className="ti">Phụ huynh học sinh lớp 8 · Đà Nẵng</div></div>
+                <div><div className="tn">Chị Mỹ Trang</div><div className="ti">Phụ huynh bạn Gia Hân · Đà Nẵng</div></div>
               </div>
               <TestiVideo videoId={TESTI_VIDEO_IDS[2]} />
             </div>
