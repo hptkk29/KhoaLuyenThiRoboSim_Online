@@ -633,7 +633,7 @@ export default function OnlinePage() {
               </div>
             ))}
             <div className="csum">
-              {[['18','Bài học video'],['5','Module lộ trình'],['~4.5–5.5h','Tổng thời lượng'],['18','Bài kiểm tra AI'],['♾','Truy cập vĩnh viễn']].map(([n,l]) => (
+              {[['18','Bài học video'],['5','Module lộ trình'],['~4.5–5.5h','Tổng thời lượng'],['18','Bài kiểm tra'],['♾','Truy cập vĩnh viễn']].map(([n,l]) => (
                 <div className="cs" key={l}><div className="csn">{n}</div><div className="csl">{l}</div></div>
               ))}
             </div>
