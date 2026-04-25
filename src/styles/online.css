@@ -793,3 +793,67 @@
   .online-page .hero-h1 { font-size:24px; }
   .online-page .pg { grid-template-columns:1fr; }
 }
+
+/* ════════════════════════════════════════════════════════
+   RESPONSIVE ENHANCED — Bổ sung mobile & tablet
+════════════════════════════════════════════════════════ */
+
+/* Hero badge: ngăn tràn phải — nguyên nhân "mất 1 phần bên phải" */
+@media(max-width:900px) {
+  .online-page .hero-badge { max-width:100%; white-space:normal; flex-wrap:wrap; }
+}
+
+/* ≤768px: sale bar 1 dòng, exam bar gọn, nav top khớp */
+@media(max-width:768px) {
+  /* Sale bar compact — bỏ label thứ 2 "Sau X → R1/R2" */
+  .online-page #sale-bar { padding:6px 12px; }
+  .online-page .sb-inner { gap:5px; }
+  .online-page .sb-label { font-size:11px; }
+  .online-page .sb-inner > .sb-label:last-child { display:none; }
+  .online-page .cd-unit { min-width:30px; padding:2px 5px; }
+  .online-page .cd-num { font-size:14px; }
+  .online-page .cd-lbl { font-size:8px; }
+  /* Exam bar: ẩn text dài, chỉ giữ timer + link */
+  .online-page #exam-bar { padding:5px 10px; font-size:11px; }
+  .online-page .eb-inner > span:first-child { display:none; }
+  .online-page .eb-box { font-size:12px; min-width:22px; padding:1px 5px; }
+  /* ol-nav: điều chỉnh sticky top cho đúng với sale bar đã thu gọn (~37px) */
+  .online-page .ol-nav { top:37px; }
+  .online-page .nav-logo { height:34px; }
+}
+
+/* ≤600px: augment existing */
+@media(max-width:600px) {
+  .online-page .hero-badge { font-size:10px; letter-spacing:0; padding:4px 10px; justify-content:center; }
+  .online-page .hero-hook { font-size:14px; }
+  /* Hero proof: ẩn divider đứng để tránh layout lạ khi flex-wrap */
+  .online-page .pdiv { display:none; }
+  .online-page .hero-proof { gap:5px 10px; }
+  /* hcard giá: thu nhỏ */
+  .online-page .hcard { padding:16px 14px; }
+  .online-page .pc-new { font-size:22px; }
+}
+
+/* ≤480px: màn hình nhỏ */
+@media(max-width:480px) {
+  .online-page #hero { padding:40px 14px 36px; }
+  .online-page section { padding:40px 14px; }
+  /* Nav: ẩn nav-tag (giữ logo + nút CTA) */
+  .online-page .nav-tag { display:none; }
+  .online-page .ol-nav { height:56px; }
+  .online-page .nav-cta { padding:7px 14px; font-size:12px; }
+  /* Sale urgency pricing */
+  .online-page .su-num { font-size:20px; min-width:44px; padding:5px 7px; }
+}
+
+/* ≤380px: augment existing */
+@media(max-width:380px) {
+  .online-page #sale-bar { padding:5px 10px; }
+  .online-page .sb-label { font-size:10px; }
+  .online-page .cd-num { font-size:12px; }
+  .online-page .cd-unit { min-width:26px; }
+  .online-page .hero-badge { font-size:9px; padding:3px 8px; }
+  .online-page .nav-logo { height:28px; }
+  .online-page .hcard { padding:14px 12px; }
+  .online-page .pc-new { font-size:20px; }
+}
