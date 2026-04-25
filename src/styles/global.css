@@ -29,14 +29,18 @@
    RESET & BASE
 ════════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; max-width: 100%; overflow-x: hidden; }
 body {
   font-family: 'Be Vietnam Pro', sans-serif;
   background-color: var(--bg);
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
+#root { max-width: 100%; overflow-x: hidden; }
+img, video, iframe { max-width: 100%; }
 
 /* ════════════════════════════════════════════
    UTILITIES
@@ -119,17 +123,18 @@ body {
    NAVBAR
 ════════════════════════════════════════════ */
 .navbar {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 10000;
   padding: 0 20px;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(91, 45, 142, 0.10);
   box-shadow: 0 1px 16px rgba(91, 45, 142, 0.07);
-  transition: background .3s, box-shadow .3s;
+  transition: background .3s, box-shadow .3s, border-bottom-color .3s;
 }
 .navbar.scrolled {
   background: rgba(255, 255, 255, 0.98);
   box-shadow: 0 2px 20px rgba(91, 45, 142, 0.12);
+  border-bottom-color: rgba(91, 45, 142, 0.16);
 }
 .navbar-inner {
   max-width: 1160px; margin: 0 auto;
@@ -140,36 +145,69 @@ body {
   display: flex; align-items: center;
   text-decoration: none; flex-shrink: 0;
 }
-.navbar-logo img { height: 52px; width: auto; }
+.navbar-logo img { height: 52px; width: auto; display: block; }
 
 .navbar-links { display: flex; gap: 10px; align-items: center; }
+.navbar .btn { white-space: nowrap; }
+.navbar .btn-sm { padding: 10px 20px; font-size: 14px; border-radius: 10px; }
 
 .hamburger {
   display: none; flex-direction: column; gap: 5px;
-  background: none; border: none; cursor: pointer; padding: 8px;
+  background: none; border: none; cursor: pointer;
+  padding: 10px; min-width: 44px; min-height: 44px;
+  align-items: center; justify-content: center;
+  border-radius: 8px;
 }
 .hamburger span {
-  display: block; width: 24px; height: 2px;
+  display: block; width: 24px; height: 2.5px;
   background: var(--purple); border-radius: 2px;
   transition: all .3s;
 }
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.hamburger.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+.hamburger:focus-visible { outline: 2px solid var(--purple); outline-offset: 2px; }
 
-@media (max-width: 640px) {
+/* Tablet: reduce sizes slightly */
+@media (max-width: 1024px) {
+  .navbar-inner { height: 68px; }
+  .navbar-logo img { height: 46px; }
+  .navbar .btn-sm { font-size: 13px; padding: 9px 15px; }
+}
+
+/* Mobile: hamburger menu */
+@media (max-width: 768px) {
   .hamburger { display: flex; }
+  .navbar-inner { height: 64px; }
+  .navbar-logo img { height: 42px; }
   .navbar-links {
     display: none;
-    position: absolute; top: 72px; left: 0; right: 0;
+    position: absolute; top: 64px; left: 0; right: 0;
     background: #fff;
     border-bottom: 1px solid var(--border);
-    padding: 16px 20px;
+    padding: 12px 16px 16px;
     flex-direction: column; gap: 10px;
     box-shadow: 0 8px 24px rgba(91,45,142,.1);
+    z-index: 1;
   }
   .navbar-links.open { display: flex; }
-  .navbar-links .btn { width: 100%; justify-content: center; }
+  .navbar-links .btn {
+    width: 100%; justify-content: center;
+    min-height: 44px; font-size: 15px; border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar { padding: 0 14px; }
+  .navbar-inner { height: 62px; }
+  .navbar-logo img { height: 38px; }
+  .navbar-links { top: 62px; padding: 10px 14px 14px; }
+}
+
+@media (max-width: 380px) {
+  .navbar { padding: 0 12px; }
+  .navbar-logo img { height: 34px; }
+  .navbar-links { padding: 10px 12px 12px; }
 }
 
 /* ════════════════════════════════════════════
@@ -982,12 +1020,33 @@ footer {
 /* ════════════════════════════════════════════
    RESPONSIVE MISC
 ════════════════════════════════════════════ */
+
+/* min-width: 0 prevents grid children from overflowing their tracks */
+.choice-grid > *, .why-grid > *, .course-grid > *,
+.footer-grid > *, .pain-grid > *, .results-grid > *,
+.audience-grid > *, .usp-grid > *, .why-offline-grid > *,
+.location-grid > *, .phase-grid > *, .benefits-list > * {
+  min-width: 0;
+}
+
 @media (max-width: 640px) {
   .section { padding: 56px 0; }
   .hero { padding-top: 100px; padding-bottom: 56px; }
   .offline-hero { padding-top: 100px; padding-bottom: 56px; }
   .home-hero { padding-top: 108px; padding-bottom: 64px; }
   .cta-section { padding: 60px 0; }
+}
+
+/* Stack CTA buttons on small mobile */
+@media (max-width: 480px) {
+  .home-hero-cta,
+  .hero-cta,
+  .offline-hero-cta,
+  .cta-btns { flex-direction: column; align-items: stretch; }
+  .home-hero-cta .btn,
+  .hero-cta .btn,
+  .offline-hero-cta .btn,
+  .cta-btns .btn { width: 100%; justify-content: center; }
 }
 
 /* Padding bottom for sticky CTA */
