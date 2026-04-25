@@ -42,7 +42,7 @@ export default function Footer() {
                   href="https://sataworld.vn/robotics/khoa-hoc/full-de-luyen-thi-vong-loai-robosim-hau-can-thong-minh-bang-r1-cuoc-thi-sang-tao-robotics-2026"
                   rel="noopener" target="_blank"
                 >
-                  <span className="fi">🟠</span> Mua khóa bảng R1 trên SataWorld
+                  <span className="fi">🟠</span> Mua khóa luyện thi bảng R1
                 </a>
               </li>
               <li>
@@ -50,7 +50,7 @@ export default function Footer() {
                   href="https://sataworld.vn/robotics/khoa-hoc/full-de-luyen-thi-vong-loai-robosim-hau-can-thong-minh-bang-r2-cuoc-thi-sang-tao-robotics-2026"
                   rel="noopener" target="_blank"
                 >
-                  <span className="fi">🔵</span> Mua khóa bảng R2 trên SataWorld
+                  <span className="fi">🔵</span> Mua khóa khoá luyện thi bảng R2
                 </a>
               </li>
             </ul>
@@ -92,7 +92,7 @@ export default function Footer() {
         <div className="footer-bottom">
           <p>
             © 2026{' '}
-            <a href="https://sataworld.vn/" rel="noopener">Sata Robo – SataWorld</a>.
+            <a href="https://sataworld.vn/" rel="noopener">Sata Robo</a>.
             {' '}Tất cả quyền được bảo lưu.
           </p>
           <p style={{ fontSize: '12px' }}>
