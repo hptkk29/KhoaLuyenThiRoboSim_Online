@@ -9,13 +9,13 @@ const ZALO_URL = 'https://zalo.me/0818823720'
 const RULES_URL = 'https://drive.google.com/drive/folders/12DTFji_NWDg_i3d1SGgjKKp8vxjF1seL?usp=sharing'
 
 // Link video hướng dẫn đăng ký (thay bằng ID YouTube khi cần)
-const GUIDE_VIDEO_ID = 'cuiQ5XO-Qps'
+const GUIDE_VIDEO_ID = 'IhWurvdUsaQ'
 
 // Link 3 video cảm nhận phụ huynh (thay từng cái khi cần)
 const TESTI_VIDEO_IDS = [
-  'IhWurvdUsaQ', // Video anh Ngọc Anh
-  'IhWurvdUsaQ', // Video anh Trường Sơn
-  'IhWurvdUsaQ', // Video chị Mỹ Trang
+  'anInoYFGrF0', // Video anh Ngọc Anh
+  'bqB2c7AlSfE', // Video anh Trường Sơn
+  '9MJFC4v8cbU', // Video chị Mỹ Trang
 ]
 
 const EXAM_END = new Date('2026-07-19T23:59:59+07:00')
@@ -341,7 +341,7 @@ export default function OnlinePage() {
           </Link>
           <div className="nav-tag">
             <div className="nav-name">Sata Robo</div>
-            <div className="nav-sl">Luyện thi RoboSim 2026</div>
+            <div className="nav-sl">Khơi Nguồn Sáng Tạo — Chắp Cánh Tương Lai</div>
           </div>
         </div>
         <div className="nav-links">
@@ -349,7 +349,6 @@ export default function OnlinePage() {
           <a href="#courses">Khóa học</a>
           <a href="#pricing">Bảng giá</a>
           <a href="#faq">FAQ</a>
-          <Link to="/">← Trang chủ</Link>
         </div>
         <a href="#pricing" className="nav-cta">Đăng ký ngay</a>
       </nav>
