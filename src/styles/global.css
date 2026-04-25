@@ -29,13 +29,13 @@
    RESET & BASE
 ════════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; max-width: 100%; overflow-x: hidden; }
+html { scroll-behavior: smooth; max-width: 100%; overflow-x: clip; }
 body {
   font-family: 'Be Vietnam Pro', sans-serif;
   background-color: var(--bg);
   color: var(--text-primary);
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: clip;
   overflow-wrap: anywhere;
   word-break: normal;
 }
