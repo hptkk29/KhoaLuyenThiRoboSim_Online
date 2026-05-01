@@ -815,6 +815,8 @@ footer {
   background: rgba(255,255,255,.98);
   box-shadow: 0 2px 20px rgba(91,45,142,.12);
 }
+/* Khi countdown bar ẩn → header dịch lên top:0 */
+.lp-header--bar-hidden { top: 0 !important; }
 .lp-header__inner {
   max-width: 1160px; margin: 0 auto;
   display: flex; align-items: center; justify-content: space-between;
@@ -1151,6 +1153,65 @@ footer {
   font-size: 16px; color: var(--text-secondary); margin-top: 16px;
 }
 .lp-courses__closer-question { font-size: 18px; font-weight: 800; color: var(--purple); margin-top: 8px !important; }
+
+/* ── Widget: Trà sữa VS Khoá học ── */
+.lp-vs {
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  align-items: center; gap: 16px;
+  background: #1a0a2e;
+  border-radius: 20px; padding: 36px 32px;
+  margin: 28px 0 24px; text-align: center;
+}
+@media (max-width: 600px) {
+  .lp-vs { grid-template-columns: 1fr; padding: 28px 20px; }
+}
+.lp-vs__left, .lp-vs__right {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.lp-vs__right {
+  background: rgba(91,45,142,.2);
+  border: 1.5px solid rgba(155,109,212,.6);
+  border-radius: 16px; padding: 24px 20px;
+  box-shadow: 0 0 32px rgba(91,45,142,.4), inset 0 0 24px rgba(91,45,142,.1);
+}
+.lp-vs__bubbles {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 6px; margin-bottom: 4px;
+}
+.lp-vs__bubble { font-size: 28px; line-height: 1; }
+.lp-vs__mascot img { width: 64px; height: 64px; object-fit: contain; }
+.lp-vs__label {
+  font-size: 16px; font-weight: 700; color: #fff;
+}
+.lp-vs__price {
+  font-size: 32px; font-weight: 900;
+  color: var(--orange); letter-spacing: .5px;
+}
+.lp-vs__price--highlight {
+  font-size: 40px;
+  text-shadow: 0 0 20px rgba(247,148,29,.5);
+}
+.lp-vs__sub {
+  font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.5;
+}
+.lp-vs__feature {
+  font-size: 13px; color: rgba(255,255,255,.7); line-height: 1.6;
+}
+.lp-vs__mid { flex-shrink: 0; }
+.lp-vs__badge {
+  display: flex; align-items: center; justify-content: center;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: #2d1060;
+  border: 2px solid rgba(155,109,212,.5);
+  font-size: 15px; font-weight: 900; color: rgba(255,255,255,.8);
+  box-shadow: 0 0 16px rgba(91,45,142,.5);
+}
+@media (max-width: 600px) {
+  .lp-vs__badge { margin: 0 auto; }
+  .lp-vs__price--highlight { font-size: 34px; }
+  .lp-vs__bubble { font-size: 22px; }
+}
+
 .lp-courses__support {
   text-align: center; margin-top: 36px;
   background: rgba(0,166,81,.06); border: 1px solid rgba(0,166,81,.2);

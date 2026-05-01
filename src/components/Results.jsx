@@ -6,7 +6,7 @@ const scores = [
     level: 'R1',
     colorKey: 'r1',
     badge: '🟦 KẾT QUẢ BẢNG R1 — TIỂU HỌC',
-    imgSrc: '[R1_RESULT_IMAGE]',
+    imgSrc: '/image/R1_RESULT_IMAGE.jpg',
     imgAlt: 'Kết quả 788/800 điểm Bảng R1 — Học viên Sata Robo giải tối ưu đề vòng loại RBT2026',
     score: '788 / 800 điểm',
     ctaText: '🟦 ĐĂNG KÝ BẢNG R1 — 490.000đ',
@@ -17,7 +17,7 @@ const scores = [
     level: 'R2',
     colorKey: 'r2',
     badge: '🟪 KẾT QUẢ BẢNG R2 — THCS',
-    imgSrc: '[R2_RESULT_IMAGE]',
+    imgSrc: '/image/R2_RESULT_IMAGE.jpg',
     imgAlt: 'Kết quả 858/900 điểm Bảng R2 — Học viên Sata Robo giải tối ưu đề vòng loại RBT2026',
     score: '858 / 900 điểm',
     ctaText: '🟪 ĐĂNG KÝ BẢNG R2 — 490.000đ',
@@ -30,7 +30,6 @@ export default function Results() {
   return (
     <section className="lp-results section section-alt" id="results" aria-labelledby="results-heading">
       <div className="container">
-        {/* Tiêu đề */}
         <h2 id="results-heading" className="section-title text-center">
           KẾT QUẢ THI THỰC TẾ TRÊN ROBOSIM
         </h2>
@@ -39,7 +38,6 @@ export default function Results() {
           khi giải tối ưu đề thi vòng loại RBT2026 theo đúng kỹ thuật mà Sata Robo dạy trong khoá Luyện Thi.
         </p>
 
-        {/* 2 score cards — song song */}
         <div className="lp-results__grid">
           {scores.map((s) => (
             <article
@@ -48,7 +46,6 @@ export default function Results() {
               aria-label={`${s.badge}: ${s.score}`}
             >
               <div className="lp-results__card-badge">{s.badge}</div>
-
               <div className="lp-results__img-wrap">
                 <img
                   src={s.imgSrc}
@@ -59,9 +56,7 @@ export default function Results() {
                   height="320"
                 />
               </div>
-
               <div className="lp-results__score">{s.score}</div>
-
               <button
                 onClick={() => trackAndRedirect(s.level, s.event)}
                 className={`btn btn-${s.colorKey} btn-lg lp-results__cta`}

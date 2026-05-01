@@ -12,7 +12,6 @@ export default function FAQ() {
   return (
     <section className="lp-faq section section-alt" id="faq" aria-labelledby="faq-heading">
       <div className="container">
-        {/* Tiêu đề */}
         <h2 id="faq-heading" className="section-title text-center">
           BỐ MẸ THƯỜNG HỎI MÌNH NHỮNG CÂU NÀY
         </h2>
@@ -21,16 +20,11 @@ export default function FAQ() {
           trước khi quyết định cho con đăng ký Khoá Luyện Thi RoboSim.
         </p>
 
-        {/* Accordion */}
         <div className="faq-list" role="list">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
-              <div
-                key={index}
-                className={`faq-item${isOpen ? ' open' : ''}`}
-                role="listitem"
-              >
+              <div key={index} className={`faq-item${isOpen ? ' open' : ''}`} role="listitem">
                 <button
                   className="faq-q"
                   onClick={() => toggle(index)}
@@ -52,20 +46,17 @@ export default function FAQ() {
                   role="region"
                   aria-labelledby={`faq-btn-${index}`}
                 >
-                  <div className="faq-a-inner">
-                    {faq.answer}
-                  </div>
+                  <div className="faq-a-inner">{faq.answer}</div>
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* CTA dưới FAQ */}
         <div className="lp-faq__footer">
           <p>Vẫn còn câu hỏi khác? Inbox mình Zalo — phản hồi trong 30 phút.</p>
           <a
-            href="[ZALO_LINK]"
+            href="https://zalo.me/0818823720"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-zalo"

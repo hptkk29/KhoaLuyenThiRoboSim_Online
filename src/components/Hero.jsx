@@ -9,7 +9,7 @@ export default function Hero() {
         <div className="lp-hero__badge" role="note">
           <span className="lp-hero__badge-dot" aria-hidden="true" />
           🚨 ĐỀ THI VÒNG LOẠI RBT2026 ĐÃ MỞ.&nbsp;
-          <strong>100.000+ HỌC SINH ĐANG LUYỆN CÙNG LÚC.</strong>
+          <strong>50.000+ HỌC SINH ĐANG LUYỆN CÙNG LÚC.</strong>
         </div>
 
         {/* H1 */}
@@ -63,18 +63,14 @@ export default function Hero() {
 
         {/* Trust badges */}
         <div className="lp-hero__trust">
-          <span className="lp-trust-badge">
-            ⏰ Ưu đãi GIẢM đến 45% — chỉ trước ngày thi
-          </span>
-          <span className="lp-trust-badge">
-            ⭐ Học viên Sata Robo đã pass vòng loại các năm trước
-          </span>
+          <span className="lp-trust-badge">⏰ Ưu đãi GIẢM đến 45% — chỉ trước ngày thi</span>
+          <span className="lp-trust-badge">⭐ Học viên Sata Robo đã pass vòng loại các năm trước</span>
         </div>
 
         {/* Ảnh hero */}
         <div className="lp-hero__visual">
           <img
-            src="[HERO_IMAGE]"
+            src="/image/hero_image.jpg"
             alt="Học sinh luyện thi RoboSim trên máy tính — Khoá Luyện Thi RBT2026 Sata Robo"
             className="lp-hero__img"
             loading="lazy"

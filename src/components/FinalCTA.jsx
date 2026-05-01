@@ -12,7 +12,6 @@ export default function FinalCTA() {
   return (
     <section className="lp-final-cta cta-section" id="final-cta" aria-labelledby="final-cta-heading">
       <div className="container">
-        {/* Tiêu đề */}
         <h2 id="final-cta-heading">
           BỐ MẸ ĐÃ ĐỌC ĐẾN ĐÂY —<br />
           CHỈ CÒN 1 BƯỚC NỮA CHO CON.
@@ -47,29 +46,18 @@ export default function FinalCTA() {
           <p>Bố mẹ cần tư vấn riêng?</p>
           <ul>
             <li>
-              <a
-                href="tel:[HOTLINE]"
-                aria-label="Gọi hotline Sata Robo"
-              >
-                📞 Hotline: <strong>[HOTLINE]</strong>
+              <a href="tel:0818823720" aria-label="Gọi hotline Sata Robo">
+                📞 Hotline: <strong>0818.823.720</strong>
               </a>
             </li>
             <li>
-              <a
-                href="[ZALO_LINK]"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Chat Zalo với Sata Robo"
-              >
-                💬 Zalo: <strong>[ZALO_LINK]</strong>
+              <a href="https://zalo.me/0818823720" target="_blank" rel="noopener noreferrer" aria-label="Chat Zalo với Sata Robo">
+                💬 Zalo: <strong>0818.823.720</strong>
               </a>
             </li>
             <li>
-              <a
-                href="mailto:[EMAIL]"
-                aria-label="Gửi email cho Sata Robo"
-              >
-                📧 Email: <strong>[EMAIL]</strong>
+              <a href="mailto:satarobo@gmail.com" aria-label="Gửi email cho Sata Robo">
+                📧 Email: <strong>satarobo@gmail.com</strong>
               </a>
             </li>
           </ul>
