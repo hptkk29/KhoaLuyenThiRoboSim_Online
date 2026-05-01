@@ -35,14 +35,14 @@ export default function Header() {
             className="btn btn-r1 btn-sm"
             aria-label="Đăng ký Khoá R1 cho Tiểu học"
           >
-            ĐK R1 — 490k
+            Đăng Ký R1
           </button>
           <button
             onClick={() => trackAndRedirect('R2', 'header_R2')}
             className="btn btn-r2 btn-sm"
             aria-label="Đăng ký Khoá R2 cho THCS"
           >
-            ĐK R2 — 490k
+            Đăng Ký R2
           </button>
         </nav>
 

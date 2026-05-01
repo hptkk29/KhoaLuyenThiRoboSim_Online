@@ -66,18 +66,6 @@ export default function Hero() {
           <span className="lp-trust-badge">⏰ Ưu đãi GIẢM đến 45% — chỉ trước ngày thi</span>
           <span className="lp-trust-badge">⭐ Học viên Sata Robo đã pass vòng loại các năm trước</span>
         </div>
-
-        {/* Ảnh hero */}
-        <div className="lp-hero__visual">
-          <img
-            src="/image/hero_image.jpg"
-            alt="Học sinh luyện thi RoboSim trên máy tính — Khoá Luyện Thi RBT2026 Sata Robo"
-            className="lp-hero__img"
-            loading="lazy"
-            width="800"
-            height="500"
-          />
-        </div>
       </div>
     </section>
   );

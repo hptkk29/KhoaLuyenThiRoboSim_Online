@@ -44,37 +44,33 @@ export default function FinalCTA() {
         {/* Liên hệ trực tiếp */}
         <div className="lp-final-cta__contact">
           <p>Bố mẹ cần tư vấn riêng?</p>
-          <ul>
-            <li>
-              <a href="tel:0818823720" aria-label="Gọi hotline Sata Robo">
-                📞 Hotline: <strong>0818.823.720</strong>
+            <div className="lp-courses__support">
+              <p>💡 Bố mẹ phân vân con thuộc bảng nào?</p>
+              <p>Inbox mình ngay — gửi tên lớp con đang học, tư vấn miễn phí trong 10 phút.</p>
+              <a
+                href="https://zalo.me/0818823720"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-zalo"
+                aria-label="Chat Zalo với Sata Robo để được tư vấn miễn phí"
+              >
+                💬 Chat Zalo với mình →
               </a>
-            </li>
-            <li>
-              <a href="https://zalo.me/0818823720" target="_blank" rel="noopener noreferrer" aria-label="Chat Zalo với Sata Robo">
-                💬 Zalo: <strong>0818.823.720</strong>
-              </a>
-            </li>
-            <li>
-              <a href="mailto:satarobo@gmail.com" aria-label="Gửi email cho Sata Robo">
-                📧 Email: <strong>satarobo@gmail.com</strong>
-              </a>
-            </li>
-          </ul>
+            </div>
           <p className="lp-final-cta__response-time">
             Sata Robo phản hồi trong 30 phút (giờ hành chính).
           </p>
         </div>
 
         {/* Bảo chứng */}
-        <ul className="lp-final-cta__guarantees" role="list" aria-label="Cam kết của Sata Robo">
+        {/* <ul className="lp-final-cta__guarantees" role="list" aria-label="Cam kết của Sata Robo">
           {guarantees.map((g) => (
             <li key={g} role="listitem">
               <span className="lp-final-cta__check" aria-hidden="true">✓</span>
               {g}
             </li>
           ))}
-        </ul>
+        </ul> */}
       </div>
     </section>
   );

@@ -71,7 +71,7 @@ img, video, iframe { max-width: 100%; }
   color: var(--text-secondary);
   font-size: 16px;
   max-width: 660px;
-  margin-bottom: 48px;
+  margin: 0 auto 48px;
 }
 .gradient-text {
   background: linear-gradient(135deg, #F7941D 0%, #B8559A 50%, #5B2D8E 100%);
@@ -1657,4 +1657,41 @@ section[id] { scroll-margin-top: 120px; }
 /* Padding bottom for sticky CTA */
 @media (max-width: 680px) {
   .offline-page-wrapper { padding-bottom: 80px; }
+}
+
+/* ════════════════════════════════════════════
+   LANDING PAGE — RESPONSIVE FIXES
+════════════════════════════════════════════ */
+
+/* min-width:0 prevents lp- grid children from overflowing tracks */
+.lp-pain__grid > *, .lp-roadmap__stages > *, .lp-results__grid > *,
+.lp-solution__grid > *, .lp-final-cta__guarantees > * {
+  min-width: 0;
+}
+
+/* Hide exam countdown on narrow screens so bar stays 1 row (~41px) */
+@media (max-width: 640px) {
+  .lp-top-bar__item:last-child { display: none; }
+}
+
+/* Allow buttons to wrap text on very small screens */
+@media (max-width: 480px) {
+  .btn { white-space: normal; }
+  .btn-lg { padding: 14px 20px; font-size: 15px; }
+}
+
+/* Stack lp-hero CTA buttons on phones */
+@media (max-width: 480px) {
+  .lp-hero__cta { flex-direction: column; align-items: stretch; }
+  .lp-hero__cta .btn { width: 100%; justify-content: center; text-align: center; }
+  .lp-hero__trust { flex-direction: column; align-items: center; }
+}
+
+/* section padding on very small phones */
+@media (max-width: 380px) {
+  .container { padding: 0 14px; }
+  .section { padding: 48px 0; }
+  .lp-hero { padding-top: 120px; padding-bottom: 44px; }
+  .course-card { padding: 28px 20px; }
+  .lp-pain__card { padding: 24px 18px; }
 }

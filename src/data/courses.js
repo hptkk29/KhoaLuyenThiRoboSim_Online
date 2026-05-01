@@ -16,10 +16,7 @@ const courses = [
     discount: 'GIẢM 38%',
     features: [
       'Video MẸO TỐI ƯU di chuyển robot',
-      'Full bộ đề R1 + đề các năm 2023–2025',
-      'Đề mô phỏng vòng loại RBT2026',
-      'Truy cập RoboSim không giới hạn',
-      'Forum hỏi đáp với mentor',
+      'Full hướng dẫn giải đề R1',
     ],
     ctaText: '🟦 ĐĂNG KÝ BẢNG R1 — 490.000đ →',
   },
@@ -40,10 +37,7 @@ const courses = [
     discount: 'GIẢM 45%',
     features: [
       'Video MẸO TỐI ƯU di chuyển robot',
-      'Full bộ đề R2 + đề các năm 2023–2025',
-      'Đề mô phỏng vòng loại RBT2026',
-      'Truy cập RoboSim không giới hạn',
-      'Forum hỏi đáp với mentor',
+      'Full hướng dẫn giải đề R2',
     ],
     ctaText: '🟪 ĐĂNG KÝ BẢNG R2 — 490.000đ →',
   },

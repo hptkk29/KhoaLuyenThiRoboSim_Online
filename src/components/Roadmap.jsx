@@ -77,7 +77,7 @@ export default function Roadmap() {
         <div className="lp-roadmap__conclusion">
           <p>
             Sau 18 buổi, con không chỉ "biết đề" —<br />
-            con <strong>BIẾT GIẢI TỐI ƯU</strong>. Có <strong>MẸO</strong>. Có <strong>PHẢN XẠ</strong>.
+            con <strong>CÁCH TỐI ƯU</strong>. Biết <strong>MẸO</strong>. <strong>PHẢN XẠ</strong> nhanh hơn.
           </p>
           <p>
             Đó là khác biệt giữa "con học cho biết"<br />

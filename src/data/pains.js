@@ -29,7 +29,7 @@ Mà mức điểm "trung bình chung"… nằm trong phần BỊ LOẠI.`,
     id: 3,
     icon: '❌',
     label: 'SỰ THẬT 03',
-    title: '180 phút thi — Con không kịp xong, mất điểm OAN.',
+    title: '180 phút thi — Con không kịp làm, mất điểm OAN.',
     body: `Cùng 1 đề. Cùng 180 phút.
 
 Có bạn làm xong dư thời gian, ăn điểm tối đa từng câu.

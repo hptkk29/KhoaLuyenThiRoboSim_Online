@@ -16,14 +16,14 @@ export default function FloatingButtons() {
         className="lp-floating__btn lp-floating__btn--r1"
         aria-label="Đăng ký Khoá R1 cho Tiểu học — 490.000đ"
       >
-        🟦 ĐK R1 — 490k
+        🟦 Đăng ký R1
       </button>
       <button
         onClick={() => trackAndRedirect('R2', 'floating_R2')}
         className="lp-floating__btn lp-floating__btn--r2"
         aria-label="Đăng ký Khoá R2 cho THCS — 490.000đ"
       >
-        🟪 ĐK R2 — 490k
+        🟪 Đăng ký R2
       </button>
     </div>
   );

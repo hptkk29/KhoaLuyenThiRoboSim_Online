@@ -3,7 +3,7 @@ const faqs = [
     question: 'Khoá học có cần con biết lập trình từ trước không?',
     answer: `Không cần. Khoá Luyện Thi RoboSim được thiết kế để con xem video là làm theo được — kể cả con chưa từng học Robotics.
 
-Mỗi buổi đều có hướng dẫn từng bước rõ ràng, và con luôn có forum hỏi đáp với mentor nếu vướng mắc.`,
+Mỗi buổi đều có hướng dẫn từng bước rõ ràng, và con luôn có thể đặt câu hỏi cho giảng viên nếu vướng mắc.`,
   },
   {
     question: 'Con mình học lớp 5 — nên chọn Bảng R1 hay R2?',
@@ -17,7 +17,7 @@ Nếu vẫn phân vân, bố mẹ inbox Zalo Sata Robo — gửi tên lớp con 
     question: 'Lỡ chọn nhầm bảng thì sao?',
     answer: `Sata Robo hỗ trợ ĐỔI bảng MIỄN PHÍ trong vòng 7 ngày sau khi đăng ký.
 
-Bố mẹ chỉ cần inbox Zalo, mình xử lý trong ngày — không phát sinh phí, không hỏi nhiều.`,
+Bố mẹ chỉ cần inbox Zalo, mình sẽ hỗ trợ xử lý trong ngày.`,
   },
   {
     question: 'Học khoá này con có cần mua robot thật không?',

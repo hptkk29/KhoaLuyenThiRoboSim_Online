@@ -37,11 +37,7 @@ export default function Footer() {
                   <span className="fi">🟪</span> Khoá Luyện Thi R2 — THCS
                 </a>
               </li>
-              <li>
-                <a href="#roadmap">
-                  <span className="fi">📋</span> Lộ trình 18 buổi
-                </a>
-              </li>
+              
               <li>
                 <a href="#faq">
                   <span className="fi">❓</span> Câu hỏi thường gặp
