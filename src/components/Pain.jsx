@@ -17,8 +17,8 @@ export default function Pain() {
 
         {/* 3 pain cards */}
         <div className="lp-pain__grid">
-          {pains.map((pain) => (
-            <article key={pain.id} className="lp-pain__card" aria-label={pain.label}>
+          {pains.map((pain, i) => (
+            <article key={pain.id} className="lp-pain__card" aria-label={pain.label} data-num={i + 1}>
               <div className="lp-pain__card-label">
                 <span aria-hidden="true">{pain.icon}</span>
                 {pain.label}

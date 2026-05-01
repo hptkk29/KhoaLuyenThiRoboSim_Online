@@ -66,6 +66,26 @@ export default function Hero() {
           <span className="lp-trust-badge">⏰ Ưu đãi GIẢM đến 45% — chỉ trước ngày thi</span>
           <span className="lp-trust-badge">⭐ Học viên Sata Robo đã pass vòng loại các năm trước</span>
         </div>
+
+        {/* Stats row */}
+        <div className="lp-hero__stats" aria-label="Thành tích Sata Robo">
+          <div className="lp-hero__stat">
+            <span className="lp-hero__stat-num">50.000+</span>
+            <span className="lp-hero__stat-label">Học sinh<br />đang luyện</span>
+          </div>
+          <div className="lp-hero__stat">
+            <span className="lp-hero__stat-num">788/800</span>
+            <span className="lp-hero__stat-label">Điểm tối ưu<br />Bảng R1</span>
+          </div>
+          <div className="lp-hero__stat">
+            <span className="lp-hero__stat-num">858/900</span>
+            <span className="lp-hero__stat-label">Điểm tối ưu<br />Bảng R2</span>
+          </div>
+          <div className="lp-hero__stat">
+            <span className="lp-hero__stat-num">490K</span>
+            <span className="lp-hero__stat-label">Trọn khoá<br />luyện thi</span>
+          </div>
+        </div>
       </div>
     </section>
   );
