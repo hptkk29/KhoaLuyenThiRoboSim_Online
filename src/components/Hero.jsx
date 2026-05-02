@@ -34,11 +34,19 @@ export default function Hero() {
                 Còn lại — về nhà.
               </p>
             </div>
+
+            {/* Emphasis — bên trái */}
+            <div className="lp-hero__emphasis">
+              <p>
+                Khoá Luyện Thi RoboSim của <strong>Sata Robo</strong><br />
+                sinh ra cho 1 mục đích duy nhất:<br />
+                <strong className="lp-hero__emphasis-main">ĐƯA CON BỐ MẸ VÀO TOP. PASS VÒNG LOẠI.</strong>
+              </p>
+            </div>
           </div>
 
-          {/* Cột phải: mascot + emphasis + CTAs + trust (chung 1 cột dọc) */}
+          {/* Cột phải: mascot + CTAs + trust */}
           <div className="lp-hero__mascot-col">
-            {/* Mascot — ẩn trên mobile, giữ CTAs vẫn hiện */}
             <img
               src="/image/LinhVat.png"
               alt=""
@@ -49,29 +57,21 @@ export default function Hero() {
               height="320"
             />
 
-            <div className="lp-hero__emphasis">
-              <p>
-                Khoá Luyện Thi RoboSim của <strong>Sata Robo</strong><br />
-                sinh ra cho 1 mục đích duy nhất:<br />
-                <strong className="lp-hero__emphasis-main">ĐƯA CON BỐ MẸ VÀO TOP. PASS VÒNG LOẠI.</strong>
-              </p>
-            </div>
-
             <div className="lp-hero__cta">
               <button
                 onClick={() => trackAndRedirect('R1', 'hero_R1')}
-                className="btn btn-r1 btn-lg"
+                className="btn btn-r1"
                 aria-label="Đăng ký Khoá Luyện Thi Bảng R1 cho con Tiểu học — 490.000đ"
               >
-                🟦 Con học TIỂU HỌC → Đăng ký BẢNG R1
+                <span className="lp-cta__label">🟦 Tiểu học → Đăng ký BẢNG R1</span>
                 <span className="lp-cta__price">490.000đ</span>
               </button>
               <button
                 onClick={() => trackAndRedirect('R2', 'hero_R2')}
-                className="btn btn-r2 btn-lg"
+                className="btn btn-r2"
                 aria-label="Đăng ký Khoá Luyện Thi Bảng R2 cho con THCS — 490.000đ"
               >
-                🟪 Con học THCS → Đăng ký BẢNG R2
+                <span className="lp-cta__label">🟪 THCS → Đăng ký BẢNG R2</span>
                 <span className="lp-cta__price">490.000đ</span>
               </button>
             </div>
