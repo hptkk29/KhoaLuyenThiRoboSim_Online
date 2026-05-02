@@ -51,10 +51,9 @@ export default function FinalCTA() {
 
         {/* Liên hệ trực tiếp */}
         <div className="lp-final-cta__contact">
-          <p>Bố mẹ cần tư vấn riêng?</p>
             <div className="lp-courses__support">
-              <p>💡 Bố mẹ phân vân con thuộc bảng nào?</p>
-              <p>Inbox mình ngay — gửi tên lớp con đang học, tư vấn miễn phí trong 10 phút.</p>
+              <p>💡 Bố mẹ cần tư vấn riêng?</p>
+              <p>Inbox mình ngay — Để được tư vấn.</p>
               <a
                 href="https://zalo.me/0818823720"
                 target="_blank"

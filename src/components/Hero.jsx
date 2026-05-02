@@ -6,10 +6,10 @@ export default function Hero() {
     <section className="lp-hero" id="hero" aria-labelledby="hero-heading">
       <div className="container lp-hero__wrap">
 
-        {/* Desktop: 2 cột — hook trái | mascot + CTA phải */}
+        {/* Desktop: 2 cột — nội dung + CTA trái | mascot phải */}
         <div className="lp-hero__grid">
 
-          {/* Cột trái: badge + h1 + sub */}
+          {/* Cột trái: toàn bộ nội dung + CTA */}
           <div className="lp-hero__content">
             <div className="lp-hero__badge" role="note">
               <span className="lp-hero__badge-dot" aria-hidden="true" />
@@ -35,28 +35,15 @@ export default function Hero() {
               </p>
             </div>
 
-            {/* Emphasis — bên trái */}
             <div className="lp-hero__emphasis">
               <p>
                 Khoá Luyện Thi RoboSim của <strong>Sata Robo</strong><br />
-                sinh ra cho 1 mục đích duy nhất:<br />
-                <strong className="lp-hero__emphasis-main">ĐƯA CON BỐ MẸ VÀO TOP. PASS VÒNG LOẠI.</strong>
+                sinh ra cho 1 mục đích duy nhất:
               </p>
+              <strong className="lp-hero__emphasis-main">ĐƯA CON BỐ MẸ VÀO TOP. PASS VÒNG LOẠI.</strong>
             </div>
-          </div>
 
-          {/* Cột phải: mascot + CTAs + trust */}
-          <div className="lp-hero__mascot-col">
-            <img
-              src="/image/LinhVat.png"
-              alt=""
-              className="lp-hero__mascot"
-              aria-hidden="true"
-              loading="eager"
-              width="320"
-              height="320"
-            />
-
+            {/* CTA buttons ngay dưới hook copy */}
             <div className="lp-hero__cta">
               <button
                 onClick={() => trackAndRedirect('R1', 'hero_R1')}
@@ -80,6 +67,18 @@ export default function Hero() {
               <span className="lp-trust-badge">⏰ Ưu đãi GIẢM đến 45% — chỉ trước ngày thi</span>
               <span className="lp-trust-badge">⭐ Học viên Sata Robo đã pass vòng loại các năm trước</span>
             </div>
+          </div>
+
+          {/* Cột phải: mascot thuần visual */}
+          <div className="lp-hero__mascot-col" aria-hidden="true">
+            <img
+              src="/image/LinhVat.png"
+              alt=""
+              className="lp-hero__mascot"
+              loading="eager"
+              width="340"
+              height="340"
+            />
           </div>
         </div>
 

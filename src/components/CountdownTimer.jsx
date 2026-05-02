@@ -10,22 +10,22 @@ export default function CountdownTimer({ timeLeft, className = '' }) {
   return (
     <span className={`lp-countdown ${className}`}>
       <span className="lp-countdown__unit">
-        <strong>{pad(timeLeft.days)}</strong>
+        <strong key={pad(timeLeft.days)} className="lp-cd-tick">{pad(timeLeft.days)}</strong>
         <small>ngày</small>
       </span>
       <span className="lp-countdown__sep">:</span>
       <span className="lp-countdown__unit">
-        <strong>{pad(timeLeft.hours)}</strong>
+        <strong key={pad(timeLeft.hours)} className="lp-cd-tick">{pad(timeLeft.hours)}</strong>
         <small>giờ</small>
       </span>
       <span className="lp-countdown__sep">:</span>
       <span className="lp-countdown__unit">
-        <strong>{pad(timeLeft.minutes)}</strong>
+        <strong key={pad(timeLeft.minutes)} className="lp-cd-tick">{pad(timeLeft.minutes)}</strong>
         <small>phút</small>
       </span>
       <span className="lp-countdown__sep">:</span>
       <span className="lp-countdown__unit">
-        <strong>{pad(timeLeft.seconds)}</strong>
+        <strong key={pad(timeLeft.seconds)} className="lp-cd-tick">{pad(timeLeft.seconds)}</strong>
         <small>giây</small>
       </span>
     </span>
