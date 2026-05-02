@@ -12,6 +12,14 @@ export default function FinalCTA() {
   return (
     <section className="lp-final-cta cta-section" id="final-cta" aria-labelledby="final-cta-heading">
       <div className="container">
+        <img
+          src="/image/LinhVat.png"
+          alt=""
+          className="lp-final-cta__mascot"
+          aria-hidden="true"
+          width="96"
+          height="96"
+        />
         <h2 id="final-cta-heading">
           BỐ MẸ ĐÃ ĐỌC ĐẾN ĐÂY —<br />
           CHỈ CÒN 1 BƯỚC NỮA CHO CON.
