@@ -780,6 +780,7 @@ footer {
 }
 .lp-top-bar__item--urgent { animation: none; }
 .lp-top-bar__icon { font-size: 15px; }
+.lp-top-bar__label--short { display: none; }
 .lp-countdown {
   display: inline-flex; align-items: center; gap: 2px;
   font-family: 'Be Vietnam Pro', monospace; font-weight: 800;
@@ -799,10 +800,17 @@ footer {
 }
 .lp-cd-tick { display: block; animation: cd-tick .28s cubic-bezier(.34,1.56,.64,1); }
 @media (max-width: 640px) {
-  .lp-top-bar__inner { justify-content: center; gap: 4px; }
-  .lp-top-bar__item { font-size: 11px; }
-  .lp-countdown__unit { min-width: 30px; }
-  .lp-countdown__unit strong { font-size: 13px; }
+  /* Bar: 1 hàng duy nhất — ẩn item ngày thi, label ngắn */
+  .lp-top-bar__inner { flex-wrap: nowrap; justify-content: space-between; padding-left: 12px; padding-right: 12px; gap: 6px; }
+  .lp-top-bar__item { font-size: 10px; gap: 4px; }
+  .lp-top-bar__item--exam { display: none; }
+  .lp-top-bar__label--long { display: none; }
+  .lp-top-bar__label--short { display: inline; }
+  .lp-top-bar__icon { font-size: 13px; }
+  .lp-countdown__unit { min-width: 26px; padding: 2px 4px; }
+  .lp-countdown__unit strong { font-size: 12px; }
+  .lp-countdown__unit small { font-size: 7.5px; }
+  .lp-countdown__sep { font-size: 13px; margin: 0 1px; padding-bottom: 6px; }
 }
 
 /* ════════════════════════════════════════════
