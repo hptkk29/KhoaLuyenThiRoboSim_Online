@@ -1986,3 +1986,51 @@ section[id] { scroll-margin-top: 120px; }
 /* ── TYPOGRAPHY: tighter headings ── */
 .section-title { letter-spacing: -.3px; }
 .lp-hero__h1 { letter-spacing: -.5px; }
+
+/* ── HERO: 2-column desktop layout ── */
+.lp-hero__wrap { position: relative; z-index: 1; }
+.lp-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 56px;
+  align-items: center;
+}
+.lp-hero__content { text-align: left; }
+.lp-hero__cta { justify-content: flex-start; }
+.lp-hero__trust { justify-content: flex-start; }
+.lp-hero__sub,
+.lp-hero__emphasis { margin-left: 0; margin-right: 0; max-width: none; }
+.lp-hero__mascot-col {
+  display: flex; align-items: center; justify-content: center;
+}
+.lp-hero__mascot {
+  width: 100%; max-width: 300px; height: auto;
+  filter: drop-shadow(0 12px 48px rgba(91,45,142,.55)) drop-shadow(0 0 24px rgba(247,148,29,.22));
+  animation: float 3.5s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-14px); }
+}
+/* Collapse to single column on ≤ 860px */
+@media (max-width: 860px) {
+  .lp-hero__grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .lp-hero__mascot-col { display: none; }
+  .lp-hero__content { text-align: center; }
+  .lp-hero__cta { justify-content: center; }
+  .lp-hero__trust { justify-content: center; }
+  .lp-hero__sub,
+  .lp-hero__emphasis { margin-left: auto; margin-right: auto; }
+}
+
+/* ── FINAL CTA: support block readable on dark bg ── */
+.lp-final-cta .lp-courses__support {
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.18);
+}
+.lp-final-cta .lp-courses__support p {
+  color: rgba(255,255,255,.82);
+}
