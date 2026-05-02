@@ -1991,20 +1991,17 @@ section[id] { scroll-margin-top: 120px; }
 .lp-hero__wrap { position: relative; z-index: 1; }
 .lp-hero__grid {
   display: grid;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: 1fr 320px;
   gap: 56px;
-  align-items: center;
+  align-items: start;
 }
 .lp-hero__content { text-align: left; }
-.lp-hero__cta { justify-content: flex-start; }
-.lp-hero__trust { justify-content: flex-start; }
-.lp-hero__sub,
-.lp-hero__emphasis { margin-left: 0; margin-right: 0; max-width: none; }
 .lp-hero__mascot-col {
-  display: flex; align-items: center; justify-content: center;
+  display: flex; align-items: flex-start; justify-content: center;
+  padding-top: 12px;
 }
 .lp-hero__mascot {
-  width: 100%; max-width: 300px; height: auto;
+  width: 100%; max-width: 320px; height: auto;
   filter: drop-shadow(0 12px 48px rgba(91,45,142,.55)) drop-shadow(0 0 24px rgba(247,148,29,.22));
   animation: float 3.5s ease-in-out infinite;
 }
@@ -2012,6 +2009,30 @@ section[id] { scroll-margin-top: 120px; }
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(-14px); }
 }
+
+/* Block bên dưới grid: emphasis + CTAs + trust — full-width, căn giữa */
+.lp-hero__bottom {
+  text-align: center;
+  margin-top: 48px;
+}
+.lp-hero__emphasis {
+  margin-left: auto; margin-right: auto;
+  max-width: 720px;
+  margin-bottom: 36px;
+}
+/* 2 nút bằng nhau — grid 1fr 1fr */
+.lp-hero__cta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-width: 760px;
+  margin: 0 auto 28px;
+}
+.lp-hero__cta .btn { width: 100%; justify-content: center; }
+.lp-hero__trust {
+  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+}
+
 /* Collapse to single column on ≤ 860px */
 @media (max-width: 860px) {
   .lp-hero__grid {
@@ -2020,10 +2041,12 @@ section[id] { scroll-margin-top: 120px; }
   }
   .lp-hero__mascot-col { display: none; }
   .lp-hero__content { text-align: center; }
-  .lp-hero__cta { justify-content: center; }
-  .lp-hero__trust { justify-content: center; }
-  .lp-hero__sub,
-  .lp-hero__emphasis { margin-left: auto; margin-right: auto; }
+  .lp-hero__bottom { margin-top: 32px; }
+  .lp-hero__sub { margin-left: auto; margin-right: auto; }
+}
+/* Stack CTA buttons on mobile */
+@media (max-width: 560px) {
+  .lp-hero__cta { grid-template-columns: 1fr; }
 }
 
 /* ── FINAL CTA: support block readable on dark bg ── */
@@ -2233,4 +2256,22 @@ footer {
 /* ── FLOATING BUTTONS: consistent orange/purple ── */
 .lp-floating__btn--r1 {
   background: linear-gradient(135deg, #FF9500, #FFAD4D);
+}
+/* Mobile: 2 nút nằm ngang để cả R1 và R2 đều hiển thị */
+@media (max-width: 680px) {
+  .lp-floating {
+    flex-direction: row;
+    gap: 8px;
+    bottom: 16px;
+    right: 12px;
+    /* slide-in từ dưới thay vì từ phải */
+    transform: translateY(80px);
+  }
+  .lp-floating--visible {
+    transform: translateY(0);
+  }
+  .lp-floating__btn {
+    font-size: 13px;
+    padding: 11px 16px;
+  }
 }
