@@ -131,6 +131,7 @@ export default function MobileCarousel({ children, autoInterval = 3500, accentCo
           box-sizing: border-box !important;
           display: flex !important;
           flex-direction: column !important;
+          overflow: hidden !important;
         }
         .mc-slide > * {
           flex: 1 !important;

@@ -25,10 +25,11 @@ export default function TopCountdownBar() {
           <CountdownTimer timeLeft={dealDeadline} className="lp-top-bar__timer" />
         </div>
 
-        {/* Ngày thi — ẩn trên mobile */}
+        {/* Ngày thi vòng loại */}
         <div className="lp-top-bar__item lp-top-bar__item--exam">
           <span className="lp-top-bar__icon" aria-hidden="true">🏆</span>
-          <span>VÒNG LOẠI 20/7 SAU:</span>
+          <span className="lp-top-bar__label--long">VÒNG LOẠI 20/7 SAU:</span>
+          <span className="lp-top-bar__label--short" aria-hidden="true">THI 20/7 SAU:</span>
           <CountdownTimer timeLeft={examDate} className="lp-top-bar__timer" />
         </div>
       </div>

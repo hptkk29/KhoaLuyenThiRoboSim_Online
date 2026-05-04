@@ -262,9 +262,13 @@ export default function Hero() {
             padding: 32px 20px 24px !important;
           }
         }
-        /* Mobile: header top = 41px + header height 68px = 109px */
+        /* Mobile 768px: bar 1 row (41px) + header 68px = 109px */
         @media (max-width: 768px) {
           #hero { padding-top: 109px !important; }
+        }
+        /* Mobile 640px: bar 2 rows (64px) + header 68px = 132px */
+        @media (max-width: 640px) {
+          #hero { padding-top: 132px !important; }
         }
       `}</style>
     </section>

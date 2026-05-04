@@ -798,9 +798,9 @@ footer {
 }
 .lp-top-bar--hidden { transform: translateY(-100%); }
 .lp-top-bar__inner {
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex; align-items: center; justify-content: center;
   padding-top: 8px; padding-bottom: 8px;
-  flex-wrap: wrap; gap: 6px;
+  flex-wrap: wrap; gap: 8px 28px;
 }
 .lp-top-bar__item {
   display: flex; align-items: center; gap: 6px;
@@ -828,10 +828,9 @@ footer {
 }
 .lp-cd-tick { display: block; animation: cd-tick .28s cubic-bezier(.34,1.56,.64,1); }
 @media (max-width: 640px) {
-  /* Bar: 1 hàng duy nhất — ẩn item ngày thi, label ngắn */
-  .lp-top-bar__inner { flex-wrap: nowrap; justify-content: space-between; padding-left: 12px; padding-right: 12px; gap: 6px; }
-  .lp-top-bar__item { font-size: 10px; gap: 4px; }
-  .lp-top-bar__item--exam { display: none; }
+  /* Bar: 2 hàng căn giữa — hiện cả 2 countdown */
+  .lp-top-bar__inner { flex-direction: column; align-items: center; padding: 5px 12px; gap: 3px; }
+  .lp-top-bar__item { font-size: 10px; gap: 4px; justify-content: center; }
   .lp-top-bar__label--long { display: none; }
   .lp-top-bar__label--short { display: inline; }
   .lp-top-bar__icon { font-size: 13px; }
@@ -839,6 +838,7 @@ footer {
   .lp-countdown__unit strong { font-size: 12px; }
   .lp-countdown__unit small { font-size: 7.5px; }
   .lp-countdown__sep { font-size: 13px; margin: 0 1px; padding-bottom: 6px; }
+  .lp-header { top: 64px; }
 }
 
 /* ════════════════════════════════════════════
@@ -1710,10 +1710,6 @@ section[id] { scroll-margin-top: 120px; }
   min-width: 0;
 }
 
-/* Hide exam countdown on narrow screens so bar stays 1 row (~41px) */
-@media (max-width: 640px) {
-  .lp-top-bar__item:last-child { display: none; }
-}
 
 /* Allow buttons to wrap text on very small screens */
 @media (max-width: 480px) {
