@@ -116,8 +116,8 @@ export default function Hero() {
                 border: 'none',
                 padding: '16px 20px',
                 borderRadius: 16,
-                fontWeight: 700,
-                fontSize: 15,
+                fontWeight: 800,
+                fontSize: 16,
                 cursor: 'pointer',
                 boxShadow: '0 8px 24px rgba(247,148,29,0.40)',
                 transition: 'transform .2s, box-shadow .2s',
@@ -128,7 +128,7 @@ export default function Hero() {
               onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(247,148,29,0.40)'; }}
             >
               🟦 Tiểu học → Bảng R1
-              <span style={{ display: 'block', fontSize: 13, fontWeight: 400, opacity: 0.85, marginTop: 2 }}>490.000đ</span>
+              <span style={{ display: 'block', fontSize: 14, fontWeight: 800, opacity: 0.9, marginTop: 2 }}>490.000đ</span>
             </button>
             <button
               onClick={() => trackAndRedirect('R2', 'hero_R2')}
@@ -141,8 +141,8 @@ export default function Hero() {
                 border: 'none',
                 padding: '16px 20px',
                 borderRadius: 16,
-                fontWeight: 700,
-                fontSize: 15,
+                fontWeight: 800,
+                fontSize: 16,
                 cursor: 'pointer',
                 boxShadow: '0 8px 24px rgba(124,58,237,0.35)',
                 transition: 'transform .2s, box-shadow .2s',
@@ -153,7 +153,7 @@ export default function Hero() {
               onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(124,58,237,0.35)'; }}
             >
               🟪 THCS → Bảng R2
-              <span style={{ display: 'block', fontSize: 13, fontWeight: 400, opacity: 0.85, marginTop: 2 }}>490.000đ</span>
+              <span style={{ display: 'block', fontSize: 14, fontWeight: 800, opacity: 0.9, marginTop: 2 }}>490.000đ</span>
             </button>
           </div>
 

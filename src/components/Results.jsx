@@ -31,7 +31,7 @@ export default function Results() {
     <section className="lp-results section section-alt" id="results" aria-labelledby="results-heading">
       <div className="container">
         <h2 id="results-heading" className="section-title text-center">
-          KẾT QUẢ THI THỰC TẾ TRÊN ROBOSIM
+          KẾT QUẢ CÁC THÍ SINH ĐÃ THAM GIA KHOÁ LUYỆN THI
         </h2>
         <p className="section-subtitle text-center">
           Đây là điểm số <strong>THẬT</strong> — chụp từ phần mềm RoboSim<br />
