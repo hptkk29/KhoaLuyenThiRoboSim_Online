@@ -14,6 +14,7 @@ function StageCard({ stage }) {
     <article
       className="lp-roadmap__stage"
       style={{ borderColor: colors.border, backgroundColor: colors.bg }}
+      data-num={stage.id}
       aria-label={stage.title}
     >
       <div className="lp-roadmap__stage-header">

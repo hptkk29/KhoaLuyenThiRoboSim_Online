@@ -1927,14 +1927,12 @@ section[id] { scroll-margin-top: 120px; }
   border-color: rgba(247,148,29,.38);
 }
 
-/* ── ROADMAP: large faded stage number ── */
-.lp-roadmap__stages { counter-reset: roadmap-stage; }
+/* ── ROADMAP: large faded stage number via data-num ── */
 .lp-roadmap__stage {
-  counter-increment: roadmap-stage;
   position: relative; overflow: hidden;
 }
 .lp-roadmap__stage::after {
-  content: counter(roadmap-stage);
+  content: attr(data-num);
   position: absolute; bottom: -10px; right: 14px;
   font-size: 88px; font-weight: 900; line-height: 1;
   color: rgba(0,0,0,.05); pointer-events: none; z-index: 0;

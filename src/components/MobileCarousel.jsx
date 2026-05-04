@@ -1,4 +1,4 @@
-/* Reusable mobile carousel — auto-slide + prev/next + dots */
+/* Reusable mobile carousel — overlay nav buttons, equal-height cards */
 import { useState, useEffect, useRef, useCallback } from 'react';
 
 export default function MobileCarousel({ children, autoInterval = 3500, accentColor = '#F97316' }) {
@@ -24,10 +24,9 @@ export default function MobileCarousel({ children, autoInterval = 3500, accentCo
 
   return (
     <div className="mc-wrap">
-      {/* Row: nút ‹ — track — nút › */}
-      <div className="mc-row">
-        <button className="mc-btn" onClick={() => goTo(cur - 1)} aria-label="Slide trước">‹</button>
 
+      {/* Track — full width, buttons float on top */}
+      <div className="mc-track-container">
         <div className="mc-track-outer">
           <div
             className="mc-track-inner"
@@ -39,7 +38,19 @@ export default function MobileCarousel({ children, autoInterval = 3500, accentCo
           </div>
         </div>
 
-        <button className="mc-btn" onClick={() => goTo(cur + 1)} aria-label="Slide tiếp">›</button>
+        {/* Overlay prev */}
+        <button
+          className="mc-btn mc-btn--prev"
+          onClick={() => goTo(cur - 1)}
+          aria-label="Slide trước"
+        >‹</button>
+
+        {/* Overlay next */}
+        <button
+          className="mc-btn mc-btn--next"
+          onClick={() => goTo(cur + 1)}
+          aria-label="Slide tiếp"
+        >›</button>
       </div>
 
       {/* Dots */}
@@ -61,54 +72,75 @@ export default function MobileCarousel({ children, autoInterval = 3500, accentCo
       <style>{`
         .mc-wrap { width: 100%; }
 
-        .mc-row {
-          display: flex !important;
-          align-items: center !important;
-          gap: 8px !important;
+        /* Wrapper cho track + overlay buttons */
+        .mc-track-container {
+          position: relative !important;
+          width: 100% !important;
         }
 
-        /* CSS reset + explicit style để không bị ghi đè bởi section CSS */
-        .mc-btn {
-          all: unset !important;
-          box-sizing: border-box !important;
-          flex-shrink: 0 !important;
-          width: 36px !important;
-          height: 36px !important;
-          border-radius: 50% !important;
-          background: #fff !important;
-          border: 1.5px solid #E5E7EB !important;
-          box-shadow: 0 2px 10px rgba(0,0,0,0.12) !important;
-          display: flex !important;
-          align-items: center !important;
-          justify-content: center !important;
-          cursor: pointer !important;
-          font-size: 20px !important;
-          color: #374151 !important;
-          font-weight: 700 !important;
-          line-height: 1 !important;
-          user-select: none !important;
-        }
-        .mc-btn:active { transform: scale(0.92) !important; }
-
+        /* Overflow container — full width */
         .mc-track-outer {
-          flex: 1 !important;
           overflow: hidden !important;
-          min-width: 0 !important;
+          width: 100% !important;
         }
 
+        /* Flex row của tất cả slides */
         .mc-track-inner {
           display: flex !important;
+          align-items: stretch !important;
           transition: transform 0.38s cubic-bezier(0.4,0,0.2,1) !important;
           will-change: transform !important;
         }
 
+        /* Mỗi slide — stretch theo slide cao nhất */
         .mc-slide {
           min-width: 100% !important;
           width: 100% !important;
           flex-shrink: 0 !important;
           box-sizing: border-box !important;
+          display: flex !important;
+          flex-direction: column !important;
         }
 
+        /* Card bên trong slide lấp đầy chiều cao */
+        .mc-slide > * {
+          flex: 1 !important;
+          min-height: 0 !important;
+        }
+
+        /* Overlay nav buttons — nằm trên card, không chiếm diện tích */
+        .mc-btn {
+          all: unset !important;
+          box-sizing: border-box !important;
+          position: absolute !important;
+          top: 50% !important;
+          transform: translateY(-50%) !important;
+          z-index: 20 !important;
+          width: 28px !important;
+          height: 28px !important;
+          border-radius: 50% !important;
+          background: rgba(255,255,255,0.90) !important;
+          border: 1px solid rgba(0,0,0,0.12) !important;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.18) !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          cursor: pointer !important;
+          font-size: 15px !important;
+          color: #374151 !important;
+          font-weight: 800 !important;
+          line-height: 1 !important;
+          user-select: none !important;
+          backdrop-filter: blur(4px) !important;
+        }
+        .mc-btn--prev { left: 10px !important; }
+        .mc-btn--next { right: 10px !important; }
+        .mc-btn:active {
+          transform: translateY(-50%) scale(0.88) !important;
+          background: rgba(255,255,255,1) !important;
+        }
+
+        /* Dots */
         .mc-dots {
           display: flex !important;
           justify-content: center !important;
@@ -116,7 +148,6 @@ export default function MobileCarousel({ children, autoInterval = 3500, accentCo
           gap: 6px !important;
           margin-top: 14px !important;
         }
-
         .mc-dot {
           all: unset !important;
           box-sizing: border-box !important;
