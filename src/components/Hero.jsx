@@ -159,8 +159,8 @@ export default function Hero() {
 
           {/* Trust badges */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: 13, color: '#6B7280' }}>
-            <span>⏰ Ưu đãi GIẢM đến 45% — chỉ trước ngày thi</span>
-            <span>⭐ Học viên Sata Robo đã pass vòng loại các năm trước</span>
+            <span>⏰ Ưu đãi GIẢM đến 45%.</span>
+            <span>⭐ 100% Học viên tại SataRobo đã <strong>PASS</strong> qua vòng loại.</span>
           </div>
         </div>
 
@@ -236,7 +236,7 @@ export default function Hero() {
             }}
           >
             <div style={{ fontSize: 11, color: '#9CA3AF', fontWeight: 600 }}>🏆 Học viên Sata Robo</div>
-            <div style={{ fontSize: 16, fontWeight: 800, color: '#7C3AED' }}>Pass nhiều năm liên tiếp</div>
+            <div style={{ fontSize: 16, fontWeight: 800, color: '#7C3AED' }}>Chinh phục đấu trường Quốc tế</div>
           </div>
         </div>
       </div>

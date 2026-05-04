@@ -1,83 +1,177 @@
-/* Roadmap 4 vòng thi — desktop ngang, mobile dọc — inline styles */
+/* Roadmap 4 vòng thi - desktop ngang, mobile dọc - inline styles */
 import { competitionStages } from '../data/competition-roadmap';
 
 const colorConfig = {
-  urgent:      { hex: '#F97316', bg: '#FFF7ED', shadow: 'rgba(249,115,22,0.22)' },
-  warning:     { hex: '#D97706', bg: '#FFFBEB', shadow: 'rgba(217,119,6,0.18)'  },
-  'r1-primary':{ hex: '#2563EB', bg: '#EFF6FF', shadow: 'rgba(37,99,235,0.18)'  },
-  'r2-primary':{ hex: '#7C3AED', bg: '#F5F3FF', shadow: 'rgba(124,58,237,0.18)' },
+  urgent: {
+    hex: '#F97316',
+    bg: '#FFF7ED',
+    soft: '#FFEDD5',
+    shadow: 'rgba(249,115,22,0.24)',
+  },
+  warning: {
+    hex: '#D97706',
+    bg: '#FFFBEB',
+    soft: '#FEF3C7',
+    shadow: 'rgba(217,119,6,0.20)',
+  },
+  'r1-primary': {
+    hex: '#2563EB',
+    bg: '#EFF6FF',
+    soft: '#DBEAFE',
+    shadow: 'rgba(37,99,235,0.20)',
+  },
+  'r2-primary': {
+    hex: '#7C3AED',
+    bg: '#F5F3FF',
+    soft: '#EDE9FE',
+    shadow: 'rgba(124,58,237,0.20)',
+  },
 };
 
 function StageCard({ stage }) {
   const c = colorConfig[stage.color];
+
   return (
     <div
       role="listitem"
+      className="roadmap-card"
       style={{
-        flex: '1 1 0',
-        minWidth: 130,
+        width: '100%',
+        minWidth: 0,
+        minHeight: 178,
+        height: '100%',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        gap: 6,
+        justifyContent: 'center',
+        gap: 10,
         background: stage.isCurrent
-          ? `linear-gradient(145deg, ${c.bg}, white)`
-          : '#fff',
+          ? `linear-gradient(145deg, ${c.bg} 0%, #fff 62%, ${c.soft} 100%)`
+          : `linear-gradient(145deg, #fff 0%, #fff 64%, ${c.bg} 100%)`,
         border: `2px solid ${c.hex}`,
-        borderRadius: 16,
-        padding: '18px 12px',
+        borderRadius: 20,
+        padding: '22px 16px 18px',
         textAlign: 'center',
         boxShadow: stage.isCurrent
-          ? `0 6px 24px ${c.shadow}, 0 0 0 3px ${c.hex}33`
-          : `0 2px 8px rgba(0,0,0,0.06)`,
+          ? `0 14px 34px ${c.shadow}, 0 0 0 5px ${c.hex}20`
+          : '0 10px 26px rgba(17,24,39,0.07)',
         animation: stage.isCurrent ? 'pulse 2.5s ease-in-out infinite' : 'none',
         position: 'relative',
         overflow: 'hidden',
+        transition: 'transform .22s ease, box-shadow .22s ease',
       }}
     >
-      {/* Accent strip top */}
-      <div style={{
-        position: 'absolute', top: 0, left: 0, right: 0, height: 3,
-        background: stage.isCurrent
-          ? `linear-gradient(90deg, ${c.hex}, ${c.hex}88)`
-          : 'transparent',
-        borderRadius: '16px 16px 0 0',
-      }} />
+      <div
+        style={{
+          position: 'absolute',
+          top: -46,
+          right: -38,
+          width: 116,
+          height: 116,
+          borderRadius: '50%',
+          background: c.soft,
+          opacity: 0.75,
+          pointerEvents: 'none',
+        }}
+      />
 
-      <span style={{ fontSize: 32, lineHeight: 1 }} aria-hidden="true">{stage.icon}</span>
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: 6,
+          background: `linear-gradient(90deg, ${c.hex}, ${c.hex}66)`,
+          borderRadius: '20px 20px 0 0',
+        }}
+      />
 
-      <div>
-        <div style={{
-          fontSize: 11, fontWeight: 800, letterSpacing: 1,
-          textTransform: 'uppercase', color: c.hex,
-          lineHeight: 1.3,
-        }}>
+      <span
+        style={{
+          width: 52,
+          height: 52,
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: '50%',
+          background: '#fff',
+          boxShadow: `0 8px 20px ${c.shadow}`,
+          fontSize: 31,
+          lineHeight: 1,
+          position: 'relative',
+          zIndex: 1,
+        }}
+        aria-hidden="true"
+      >
+        {stage.icon}
+      </span>
+
+      <div style={{ minHeight: 44, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div
+          style={{
+            fontSize: 14,
+            fontWeight: 900,
+            letterSpacing: 1.1,
+            textTransform: 'uppercase',
+            color: c.hex,
+            lineHeight: 1.25,
+          }}
+        >
           {stage.title}
         </div>
         {stage.subtitle && (
-          <div style={{
-            fontSize: 10, fontWeight: 700, letterSpacing: 0.8,
-            textTransform: 'uppercase', color: c.hex, opacity: 0.75,
-          }}>
+          <div
+            style={{
+              fontSize: 12,
+              fontWeight: 800,
+              letterSpacing: 0.8,
+              textTransform: 'uppercase',
+              color: c.hex,
+              opacity: 0.75,
+              lineHeight: 1.25,
+            }}
+          >
             {stage.subtitle}
           </div>
         )}
       </div>
 
-      <div style={{
-        fontSize: 11, color: '#6B7280', fontWeight: 600,
-        background: '#f3f4f6', borderRadius: 8,
-        padding: '3px 8px', marginTop: 2,
-      }}>
+      <div
+        style={{
+          minHeight: 34,
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: 13,
+          color: '#6B7280',
+          fontWeight: 800,
+          background: '#F8FAFC',
+          border: '1px solid #EEF2F7',
+          borderRadius: 12,
+          padding: '6px 12px',
+          marginTop: 2,
+          width: 'fit-content',
+          maxWidth: '100%',
+        }}
+      >
         {stage.date}
       </div>
 
       {stage.isCurrent && (
-        <div style={{
-          fontSize: 9, fontWeight: 800, letterSpacing: 0.5,
-          color: '#fff', background: c.hex,
-          borderRadius: 100, padding: '2px 8px', textTransform: 'uppercase',
-        }}>
+        <div
+          style={{
+            fontSize: 11,
+            fontWeight: 900,
+            letterSpacing: 0.5,
+            color: '#fff',
+            background: c.hex,
+            borderRadius: 100,
+            padding: '5px 12px',
+            textTransform: 'uppercase',
+            boxShadow: `0 8px 18px ${c.shadow}`,
+          }}
+        >
           ĐÂY RỒI!
         </div>
       )}
@@ -86,13 +180,25 @@ function StageCard({ stage }) {
 }
 
 const Arrow = ({ direction = 'right' }) => (
-  <div style={{
-    flexShrink: 0,
-    color: '#D1D5DB',
-    fontSize: direction === 'right' ? 22 : 18,
-    fontWeight: 700,
-    lineHeight: 1,
-  }} aria-hidden="true">
+  <div
+    style={{
+      flexShrink: 0,
+      width: direction === 'right' ? 30 : 36,
+      height: direction === 'right' ? 30 : 36,
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: '#94A3B8',
+      background: '#fff',
+      border: '1px solid #E5E7EB',
+      borderRadius: '50%',
+      boxShadow: '0 8px 18px rgba(15,23,42,0.08)',
+      fontSize: direction === 'right' ? 18 : 16,
+      fontWeight: 900,
+      lineHeight: 1,
+    }}
+    aria-hidden="true"
+  >
     {direction === 'right' ? '→' : '↓'}
   </div>
 );
@@ -100,33 +206,50 @@ const Arrow = ({ direction = 'right' }) => (
 export default function CompetitionRoadmap() {
   return (
     <div role="list" aria-label="Hành trình 4 vòng thi RBT2026">
-
-      {/* DESKTOP: ngang */}
-      <div style={{
-        display: 'none',
-        alignItems: 'stretch',
-        justifyContent: 'center',
-        gap: 10,
-        width: '100%',
-      }} className="roadmap-desktop">
+      <div
+        style={{
+          display: 'none',
+          gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
+          gap: 24,
+          width: '100%',
+        }}
+        className="roadmap-desktop"
+      >
         {competitionStages.map((stage, i) => (
-          <div key={stage.title} style={{ display: 'flex', alignItems: 'center', gap: 10, flex: '1 1 0' }}>
+          <div key={stage.title} style={{ position: 'relative', minWidth: 0, display: 'flex' }}>
             <StageCard stage={stage} />
-            {i < competitionStages.length - 1 && <Arrow direction="right" />}
+            {i < competitionStages.length - 1 && (
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '50%',
+                  right: -27,
+                  transform: 'translateY(-50%)',
+                  zIndex: 4,
+                }}
+              >
+                <Arrow direction="right" />
+              </div>
+            )}
           </div>
         ))}
       </div>
 
-      {/* MOBILE: dọc */}
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: 8,
-        width: '100%',
-      }} className="roadmap-mobile">
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: 8,
+          width: '100%',
+        }}
+        className="roadmap-mobile"
+      >
         {competitionStages.map((stage, i) => (
-          <div key={stage.title} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, width: '100%' }}>
+          <div
+            key={stage.title}
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, width: '100%' }}
+          >
             <StageCard stage={stage} />
             {i < competitionStages.length - 1 && <Arrow direction="down" />}
           </div>
@@ -135,8 +258,15 @@ export default function CompetitionRoadmap() {
 
       <style>{`
         @media (min-width: 768px) {
-          .roadmap-desktop { display: flex !important; }
+          .roadmap-desktop { display: grid !important; }
           .roadmap-mobile  { display: none  !important; }
+        }
+
+        @media (hover: hover) {
+          .roadmap-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 42px rgba(15,23,42,0.12) !important;
+          }
         }
       `}</style>
     </div>
