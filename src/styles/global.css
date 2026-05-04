@@ -847,14 +847,12 @@ footer {
 .lp-header {
   position: fixed; top: 47px; left: 0; right: 0; z-index: 10000;
   padding: 0 20px;
-  background: rgba(255,255,255,.98);
-  backdrop-filter: blur(16px);
+  background: #ffffff;
   border-bottom: 1px solid rgba(91,45,142,.10);
   box-shadow: 0 1px 16px rgba(91,45,142,.07);
-  transition: background .3s, box-shadow .3s, top .3s;
+  transition: box-shadow .3s, top .3s;
 }
 .lp-header--scrolled {
-  background: rgba(255,255,255,.98);
   box-shadow: 0 2px 20px rgba(91,45,142,.12);
 }
 /* Khi countdown bar ẩn → header dịch lên top:0 */
@@ -891,12 +889,12 @@ footer {
   .lp-header__nav .lp-header__link { display: none; }
 }
 @media (max-width: 768px) {
-  .lp-header { top: 48px; }
+  .lp-header { top: 41px; }
   .lp-header__nav { display: none; }
   .hamburger { display: flex; }
 }
 @media (max-width: 480px) {
-  .lp-header { top: 56px; }
+  .lp-header { top: 41px; }
 }
 
 /* ════════════════════════════════════════════

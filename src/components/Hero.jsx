@@ -262,6 +262,10 @@ export default function Hero() {
             padding: 32px 20px 24px !important;
           }
         }
+        /* Mobile: header top = 41px + header height 68px = 109px */
+        @media (max-width: 768px) {
+          #hero { padding-top: 109px !important; }
+        }
       `}</style>
     </section>
   );
