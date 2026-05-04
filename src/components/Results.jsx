@@ -8,6 +8,7 @@ const scores = [
     badge: '🟦 KẾT QUẢ BẢNG R1 — TIỂU HỌC',
     imgSrc: '/image/R1_RESULT_IMAGE.jpg',
     imgAlt: 'Kết quả 788/800 điểm Bảng R1 — Học viên Sata Robo giải tối ưu đề vòng loại RBT2026',
+    imgW: 480, imgH: 270,
     score: '781 / 800 điểm',
     ctaText: '🟦 ĐĂNG KÝ BẢNG R1 — 490.000đ',
     ctaSub: '(Cho con TIỂU HỌC)',
