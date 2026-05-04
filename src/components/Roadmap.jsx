@@ -1,11 +1,47 @@
 /* Section 5 — Roadmap: 18 buổi, 3 chặng */
 import roadmap from '../data/roadmap';
+import MobileCarousel from './MobileCarousel';
 
 const stageColors = {
-  green: { bg: '#d1fae5', border: '#10b981', text: '#065f46' },
+  green:  { bg: '#d1fae5', border: '#10b981', text: '#065f46' },
   yellow: { bg: '#fef9c3', border: '#f59e0b', text: '#78350f' },
-  red: { bg: '#fee2e2', border: '#ef4444', text: '#991b1b' },
+  red:    { bg: '#fee2e2', border: '#ef4444', text: '#991b1b' },
 };
+
+function StageCard({ stage }) {
+  const colors = stageColors[stage.colorKey];
+  return (
+    <article
+      className="lp-roadmap__stage"
+      style={{ borderColor: colors.border, backgroundColor: colors.bg }}
+      aria-label={stage.title}
+    >
+      <div className="lp-roadmap__stage-header">
+        <span className="lp-roadmap__stage-dot" aria-hidden="true">{stage.dot}</span>
+        <div>
+          <div className="lp-roadmap__stage-sessions" style={{ color: colors.text }}>
+            {stage.sessions}
+          </div>
+          <h3 className="lp-roadmap__stage-title" style={{ color: colors.text }}>
+            {stage.title}
+          </h3>
+        </div>
+      </div>
+      <p className="lp-roadmap__stage-intro">{stage.intro}</p>
+      <ul className="lp-roadmap__stage-points" role="list">
+        {stage.points.map((point, i) => (
+          <li key={i} role="listitem">
+            <span className="lp-roadmap__point-check" aria-hidden="true">•</span>
+            {point}
+          </li>
+        ))}
+      </ul>
+      <p className="lp-roadmap__stage-summary" style={{ color: colors.text }}>
+        {stage.summary}
+      </p>
+    </article>
+  );
+}
 
 export default function Roadmap() {
   return (
@@ -21,56 +57,20 @@ export default function Roadmap() {
           Không học vu vơ. Không nhảy cóc. Không bỏ sót.
         </p>
 
-        {/* 3 chặng */}
-        <div className="lp-roadmap__stages" role="list">
-          {roadmap.map((stage) => {
-            const colors = stageColors[stage.colorKey];
-            return (
-              <article
-                key={stage.id}
-                className="lp-roadmap__stage"
-                style={{ borderColor: colors.border, backgroundColor: colors.bg }}
-                role="listitem"
-                aria-label={stage.title}
-              >
-                {/* Header chặng */}
-                <div className="lp-roadmap__stage-header">
-                  <span className="lp-roadmap__stage-dot" aria-hidden="true">{stage.dot}</span>
-                  <div>
-                    <div
-                      className="lp-roadmap__stage-sessions"
-                      style={{ color: colors.text }}
-                    >
-                      {stage.sessions}
-                    </div>
-                    <h3
-                      className="lp-roadmap__stage-title"
-                      style={{ color: colors.text }}
-                    >
-                      {stage.title}
-                    </h3>
-                  </div>
-                </div>
+        {/* Desktop: 3-col grid */}
+        <div className="lp-roadmap__stages lp-roadmap__desktop" role="list">
+          {roadmap.map(stage => (
+            <StageCard key={stage.id} stage={stage} />
+          ))}
+        </div>
 
-                {/* Nội dung */}
-                <p className="lp-roadmap__stage-intro">{stage.intro}</p>
-                <ul className="lp-roadmap__stage-points" role="list">
-                  {stage.points.map((point, i) => (
-                    <li key={i} role="listitem">
-                      <span className="lp-roadmap__point-check" aria-hidden="true">•</span>
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-                <p
-                  className="lp-roadmap__stage-summary"
-                  style={{ color: colors.text }}
-                >
-                  {stage.summary}
-                </p>
-              </article>
-            );
-          })}
+        {/* Mobile: carousel */}
+        <div className="lp-roadmap__mobile-carousel">
+          <MobileCarousel accentColor="#10b981">
+            {roadmap.map(stage => (
+              <StageCard key={stage.id} stage={stage} />
+            ))}
+          </MobileCarousel>
         </div>
 
         {/* Đoạn chốt */}
@@ -85,6 +85,14 @@ export default function Roadmap() {
           </p>
         </div>
       </div>
+
+      <style>{`
+        .lp-roadmap__mobile-carousel { display: none; }
+        @media (max-width: 860px) {
+          .lp-roadmap__desktop        { display: none !important; }
+          .lp-roadmap__mobile-carousel { display: block; }
+        }
+      `}</style>
     </section>
   );
 }

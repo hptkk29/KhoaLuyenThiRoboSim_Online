@@ -1,5 +1,6 @@
-/* Roadmap 4 vòng thi - desktop ngang, mobile dọc - inline styles */
+/* Roadmap 4 vòng thi - desktop ngang, mobile carousel */
 import { competitionStages } from '../data/competition-roadmap';
+import MobileCarousel from './MobileCarousel';
 
 const colorConfig = {
   urgent: {
@@ -172,7 +173,7 @@ function StageCard({ stage }) {
             boxShadow: `0 8px 18px ${c.shadow}`,
           }}
         >
-          ĐÂY RỒI!
+          SẮP DIỄN RA!
         </div>
       )}
     </div>
@@ -235,25 +236,10 @@ export default function CompetitionRoadmap() {
         ))}
       </div>
 
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: 8,
-          width: '100%',
-        }}
-        className="roadmap-mobile"
-      >
-        {competitionStages.map((stage, i) => (
-          <div
-            key={stage.title}
-            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, width: '100%' }}
-          >
-            <StageCard stage={stage} />
-            {i < competitionStages.length - 1 && <Arrow direction="down" />}
-          </div>
-        ))}
+      <div className="roadmap-mobile">
+        <MobileCarousel accentColor="#F97316">
+          {competitionStages.map(stage => <StageCard key={stage.title} stage={stage} />)}
+        </MobileCarousel>
       </div>
 
       <style>{`
@@ -261,6 +247,7 @@ export default function CompetitionRoadmap() {
           .roadmap-desktop { display: grid !important; }
           .roadmap-mobile  { display: none  !important; }
         }
+        .roadmap-mobile { display: block; }
 
         @media (hover: hover) {
           .roadmap-card:hover {

@@ -1,5 +1,26 @@
 /* Section 2 — Pain: 3 sự thật về vòng loại RBT2026 */
 import pains from '../data/pains';
+import MobileCarousel from './MobileCarousel';
+
+const BORDER_COLORS = ['#ef4444', '#f97316', '#eab308'];
+
+function PainCard({ pain, index }) {
+  return (
+    <article
+      className="lp-pain__card"
+      aria-label={pain.label}
+      data-num={index + 1}
+      style={{ borderLeftColor: BORDER_COLORS[index] }}
+    >
+      <div className="lp-pain__card-label">
+        <span aria-hidden="true">{pain.icon}</span>
+        {pain.label}
+      </div>
+      <h3 className="lp-pain__card-title">{pain.title}</h3>
+      <p className="lp-pain__card-body">{pain.body}</p>
+    </article>
+  );
+}
 
 export default function Pain() {
   return (
@@ -15,18 +36,20 @@ export default function Pain() {
           "con học chăm, con luyện nhiều" <strong>KHÔNG còn là lợi thế</strong> nữa.
         </p>
 
-        {/* 3 pain cards */}
-        <div className="lp-pain__grid">
+        {/* Desktop: 3-col grid */}
+        <div className="lp-pain__grid lp-pain__desktop">
           {pains.map((pain, i) => (
-            <article key={pain.id} className="lp-pain__card" aria-label={pain.label} data-num={i + 1}>
-              <div className="lp-pain__card-label">
-                <span aria-hidden="true">{pain.icon}</span>
-                {pain.label}
-              </div>
-              <h3 className="lp-pain__card-title">{pain.title}</h3>
-              <p className="lp-pain__card-body">{pain.body}</p>
-            </article>
+            <PainCard key={pain.id} pain={pain} index={i} />
           ))}
+        </div>
+
+        {/* Mobile: carousel */}
+        <div className="lp-pain__mobile-carousel">
+          <MobileCarousel accentColor="#ef4444">
+            {pains.map((pain, i) => (
+              <PainCard key={pain.id} pain={pain} index={i} />
+            ))}
+          </MobileCarousel>
         </div>
 
         {/* Câu chuyển */}
@@ -35,7 +58,6 @@ export default function Pain() {
             Bố mẹ đọc đến đây — thấy đúng không?
           </p>
 
-          {/* Reframe 3 lớp */}
           <div className="lp-pain__reframe">
             <p>Vấn đề <strong>KHÔNG PHẢI</strong> con không có đề.</p>
             <p>Vấn đề <strong>KHÔNG PHẢI</strong> con không luyện đủ.</p>
@@ -62,6 +84,14 @@ export default function Pain() {
           </a>
         </div>
       </div>
+
+      <style>{`
+        .lp-pain__mobile-carousel { display: none; }
+        @media (max-width: 860px) {
+          .lp-pain__desktop      { display: none !important; }
+          .lp-pain__mobile-carousel { display: block; }
+        }
+      `}</style>
     </section>
   );
 }
