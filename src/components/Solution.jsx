@@ -1,4 +1,4 @@
-/* Section 3 — Solution: Lý do chọn Khoá Luyện Thi RoboSim */
+/* Section 3 — Solution */
 
 const compareRows = [
   {
@@ -7,7 +7,7 @@ const compareRows = [
     course: 'Giảng viên chỉ MẸO + TRICK chuyên môn',
   },
   {
-    feature: 'Kết quả',
+    feature: 'Kết quả học',
     free: 'Cùng cách làm như đa số → cùng kết quả như đa số',
     course: 'Cách làm khác đa số → kết quả khác đa số',
   },
@@ -39,7 +39,6 @@ export default function Solution() {
 
         {/* Block nội dung + ảnh */}
         <div className="lp-solution__grid">
-          {/* Cột chữ */}
           <div className="lp-solution__content">
             <h3 className="lp-solution__sub-heading">
               🤖 Khoá Luyện Thi không chỉ giải đề. Khoá Luyện Thi <em>GIẢI TỐI ƯU</em>.
@@ -48,7 +47,6 @@ export default function Solution() {
               Cùng 1 đề thi vòng loại RBT2026. Cùng 180 phút. Cùng phần mềm RoboSim.<br />
               Khác biệt nằm ở <strong>4 điều — chỉ giảng viên chuyên môn mới có:</strong>
             </p>
-
             <ul className="lp-solution__points" role="list">
               <li>
                 <span className="lp-solution__point-icon" aria-hidden="true">⚙️</span>
@@ -80,8 +78,6 @@ export default function Solution() {
               </li>
             </ul>
           </div>
-
-          {/* Cột ảnh */}
           <div className="lp-solution__visual">
             <img
               src="/image/demo_robosim.png"
@@ -94,29 +90,115 @@ export default function Solution() {
           </div>
         </div>
 
-        {/* Bảng so sánh */}
-        <div className="lp-solution__compare-title">
-          <h3>📊 Khác biệt giữa "tự luyện free" và "học khoá luyện thi":</h3>
-        </div>
-        <div className="compare-table-wrap">
-          <table className="compare-table" role="table" aria-label="So sánh học free và học khoá luyện thi">
-            <thead>
-              <tr>
-                <th scope="col">Tiêu chí</th>
-                <th scope="col" className="th-r1">❌ HỌC FREE</th>
-                <th scope="col" className="th-r2">✅ HỌC KHOÁ LUYỆN THI</th>
-              </tr>
-            </thead>
-            <tbody>
-              {compareRows.map((row, i) => (
-                <tr key={i}>
-                  <td>{row.feature}</td>
-                  <td>{row.free}</td>
-                  <td>{row.course}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        {/* ── Bảng so sánh redesign ── */}
+        <div style={{ marginTop: 48 }}>
+          <h3 style={{
+            fontSize: 16, fontWeight: 800, color: 'var(--text-primary)',
+            marginBottom: 20, textAlign: 'center',
+          }}>
+            📊 Khác biệt giữa "tự luyện free" và "học khoá luyện thi":
+          </h3>
+
+          <div style={{
+            borderRadius: 20,
+            overflow: 'hidden',
+            boxShadow: '0 4px 24px rgba(91,45,142,0.10)',
+            border: '1px solid rgba(91,45,142,0.10)',
+          }}>
+            {/* Header row */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
+              <div style={{
+                background: 'linear-gradient(135deg, #fee2e2, #fef3c7)',
+                padding: '14px 16px',
+                textAlign: 'center',
+                borderRight: '1px solid rgba(255,255,255,0.6)',
+              }}>
+                <span style={{ fontSize: 18 }}>❌</span>
+                <div style={{ fontSize: 13, fontWeight: 800, color: '#b91c1c', marginTop: 4, textTransform: 'uppercase', letterSpacing: 0.5 }}>
+                  Học Free
+                </div>
+              </div>
+              <div style={{
+                background: 'linear-gradient(135deg, #d1fae5, #ede9fe)',
+                padding: '14px 16px',
+                textAlign: 'center',
+              }}>
+                <span style={{ fontSize: 18 }}>✅</span>
+                <div style={{ fontSize: 13, fontWeight: 800, color: '#065f46', marginTop: 4, textTransform: 'uppercase', letterSpacing: 0.5 }}>
+                  Học Khoá Luyện Thi
+                </div>
+              </div>
+            </div>
+
+            {/* Data rows */}
+            {compareRows.map((row, i) => (
+              <div key={i}>
+                {/* Feature label */}
+                <div style={{
+                  background: i % 2 === 0 ? '#f8f7ff' : '#fafafa',
+                  padding: '8px 16px',
+                  borderTop: '1px solid rgba(91,45,142,0.08)',
+                }}>
+                  <span style={{
+                    fontSize: 11, fontWeight: 800, color: 'var(--purple)',
+                    textTransform: 'uppercase', letterSpacing: 0.8,
+                  }}>
+                    {row.feature}
+                  </span>
+                </div>
+
+                {/* Values */}
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  background: i % 2 === 0 ? '#f8f7ff' : '#fafafa',
+                }}>
+                  <div style={{
+                    padding: '12px 14px',
+                    borderRight: '1px solid rgba(91,45,142,0.08)',
+                    fontSize: 13,
+                    color: '#6B5A8A',
+                    lineHeight: 1.6,
+                    background: 'rgba(254,226,226,0.25)',
+                  }}>
+                    {row.free}
+                  </div>
+                  <div style={{
+                    padding: '12px 14px',
+                    fontSize: 13,
+                    fontWeight: 600,
+                    color: '#064e3b',
+                    lineHeight: 1.6,
+                    background: 'rgba(209,250,229,0.30)',
+                  }}>
+                    {row.course}
+                  </div>
+                </div>
+              </div>
+            ))}
+
+            {/* Bottom banner */}
+            <div style={{
+              background: 'linear-gradient(135deg, #5B2D8E, #7C3AED)',
+              padding: '14px 20px',
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: 12,
+            }}>
+              <div style={{
+                textAlign: 'center', color: 'rgba(255,255,255,0.7)',
+                fontSize: 12, fontWeight: 700,
+              }}>
+                😔 Đứng cùng đám đông
+              </div>
+              <div style={{
+                textAlign: 'center', color: '#fff',
+                fontSize: 12, fontWeight: 800,
+              }}>
+                🏆 VƯỢT LÊN — PASS!
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* CTA mềm */}
