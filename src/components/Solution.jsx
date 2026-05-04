@@ -102,7 +102,7 @@ export default function Solution() {
           {/* Cột ảnh */}
           <div className="lp-solution__visual">
             <img
-              src="/image/sabanrobosim.jpg"
+              src="/image/demo_robosim.png"
               alt="Sa bàn RoboSim — giao diện phần mềm thi vòng loại RBT2026"
               className="lp-solution__img"
               loading="lazy"
