@@ -84,8 +84,8 @@ export default function Solution() {
               alt="Sa bàn RoboSim — giao diện phần mềm thi vòng loại RBT2026"
               className="lp-solution__img"
               loading="lazy"
-              width="520"
-              height="400"
+              width="1912"
+              height="989"
             />
           </div>
         </div>

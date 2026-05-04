@@ -8,7 +8,8 @@ const scores = [
     badge: '🟦 KẾT QUẢ BẢNG R1 — TIỂU HỌC',
     imgSrc: '/image/R1_RESULT_IMAGE.jpg',
     imgAlt: 'Kết quả 788/800 điểm Bảng R1 — Học viên Sata Robo giải tối ưu đề vòng loại RBT2026',
-    imgW: 480, imgH: 270,
+    imgW: 2000,
+    imgH: 1125,
     score: '781 / 800 điểm',
     ctaText: '🟦 ĐĂNG KÝ BẢNG R1 — 490.000đ',
     ctaSub: '(Cho con TIỂU HỌC)',
@@ -20,6 +21,8 @@ const scores = [
     badge: '🟪 KẾT QUẢ BẢNG R2 — THCS',
     imgSrc: '/image/R2_RESULT_IMAGE.jpg',
     imgAlt: 'Kết quả 858/900 điểm Bảng R2 — Học viên Sata Robo giải tối ưu đề vòng loại RBT2026',
+    imgW: 2559,
+    imgH: 1515,
     score: '856 / 900 điểm',
     ctaText: '🟪 ĐĂNG KÝ BẢNG R2 — 490.000đ',
     ctaSub: '(Cho con THCS)',
@@ -47,14 +50,17 @@ export default function Results() {
               aria-label={`${s.badge}: ${s.score}`}
             >
               <div className="lp-results__card-badge">{s.badge}</div>
-              <div className="lp-results__img-wrap">
+              <div
+                className="lp-results__img-wrap"
+                style={{ aspectRatio: `${s.imgW} / ${s.imgH}` }}
+              >
                 <img
                   src={s.imgSrc}
                   alt={s.imgAlt}
                   className="lp-results__img"
                   loading="lazy"
-                  width="480"
-                  height="320"
+                  width={s.imgW}
+                  height={s.imgH}
                 />
               </div>
               <div className="lp-results__score">{s.score}</div>
