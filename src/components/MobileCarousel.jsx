@@ -145,6 +145,7 @@ export default function MobileCarousel({ children, autoInterval = 3500, accentCo
           align-items: center !important;
           gap: 6px !important;
           margin-top: 16px !important;
+          margin-bottom: 12px !important;
           padding: 8px 16px !important;
           background: rgba(0,0,0,0.04) !important;
           border-radius: 100px !important;

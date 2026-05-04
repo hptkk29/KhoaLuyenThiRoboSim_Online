@@ -838,7 +838,6 @@ footer {
   .lp-countdown__unit strong { font-size: 12px; }
   .lp-countdown__unit small { font-size: 7.5px; }
   .lp-countdown__sep { font-size: 13px; margin: 0 1px; padding-bottom: 6px; }
-  .lp-header { top: 64px; }
 }
 
 /* ════════════════════════════════════════════
@@ -895,6 +894,10 @@ footer {
 }
 @media (max-width: 480px) {
   .lp-header { top: 41px; }
+}
+/* Bar 2 hàng trên mobile — header phải nằm dưới bar (~64px) */
+@media (max-width: 640px) {
+  .lp-header { top: 64px; }
 }
 
 /* ════════════════════════════════════════════
