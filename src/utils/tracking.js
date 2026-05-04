@@ -16,7 +16,9 @@ export function trackAndRedirect(courseLevel, eventName) {
   }
 
   // Build URL SataWorld + UTM
-  const slug = courseLevel === 'R1' ? 'khoa-r1' : 'khoa-r2';
+  const slug = courseLevel === 'R1'
+    ? 'robotics/khoa-hoc/full-de-luyen-thi-vong-loai-robosim-hau-can-thong-minh-bang-r1-cuoc-thi-sang-tao-robotics-2026'
+    : 'robotics/khoa-hoc/full-de-luyen-thi-vong-loai-robosim-hau-can-thong-minh-bang-r2-cuoc-thi-sang-tao-robotics-2026';
   const url = `https://sataworld.vn/${slug}?utm_source=luyenthirobosim&utm_medium=${eventName}&utm_campaign=rbt2026`;
   window.open(url, '_blank', 'noopener,noreferrer');
 }
