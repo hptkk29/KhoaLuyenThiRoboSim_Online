@@ -1,3 +1,8 @@
+/* Tailwind CSS — directives phải ở trên cùng để PostCSS xử lý */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ════════════════════════════════════════════
    DESIGN TOKENS
 ════════════════════════════════════════════ */

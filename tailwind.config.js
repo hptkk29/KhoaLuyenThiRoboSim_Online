@@ -30,4 +30,8 @@ export default {
     },
   },
   plugins: [],
+  corePlugins: {
+    // Tắt preflight để không reset CSS của các section cũ
+    preflight: false,
+  },
 }
