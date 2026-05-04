@@ -1,7 +1,30 @@
-/* Tailwind CSS — directives phải ở trên cùng để PostCSS xử lý */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind CSS v4 — skip preflight để không reset CSS cũ */
+@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/utilities" layer(utilities);
+
+@theme {
+  --font-family-sans: "Be Vietnam Pro", sans-serif;
+
+  --color-r1-primary: #2563EB;
+  --color-r2-primary: #7C3AED;
+  --color-urgent: #F97316;
+  --color-warning: #FBBF24;
+  --color-success: #10B981;
+
+  --animate-pulse-urgent: pulse 1s ease-in-out infinite;
+  --animate-slide-down: slideDown 0.3s ease-out;
+  --animate-slide-up: slideUp 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100%); }
+}
 
 /* ════════════════════════════════════════════
    DESIGN TOKENS
