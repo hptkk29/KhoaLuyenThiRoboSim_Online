@@ -25,6 +25,15 @@ export default function FloatingButtons() {
       >
         🟪 Đăng ký R2
       </button>
+      <a
+        href="https://zalo.me/0818823720"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="lp-floating__btn lp-floating__btn--zalo"
+        aria-label="Chat Zalo với tư vấn viên"
+      >
+        💬 Chat Zalo
+      </a>
     </div>
   );
 }
