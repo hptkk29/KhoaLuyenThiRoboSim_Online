@@ -23,77 +23,110 @@ export default function MobileCarousel({ children, autoInterval = 3500, accentCo
   }, [n, startTimer]);
 
   return (
-    <div style={{ width: '100%' }}>
-      {/* Track + nav buttons */}
-      <div style={{ position: 'relative' }}>
-        {/* Slide track */}
-        <div style={{ overflow: 'hidden', margin: '0 44px' }}>
+    <div className="mc-wrap">
+      {/* Row: nút ‹ — track — nút › */}
+      <div className="mc-row">
+        <button className="mc-btn" onClick={() => goTo(cur - 1)} aria-label="Slide trước">‹</button>
+
+        <div className="mc-track-outer">
           <div
-            style={{
-              display: 'flex',
-              transition: 'transform 0.38s cubic-bezier(0.4,0,0.2,1)',
-              transform: `translateX(-${cur * 100}%)`,
-              willChange: 'transform',
-            }}
+            className="mc-track-inner"
+            style={{ transform: `translateX(-${cur * 100}%)` }}
           >
             {slides.map((slide, i) => (
-              <div key={i} style={{ minWidth: '100%', flexShrink: 0 }}>
-                {slide}
-              </div>
+              <div key={i} className="mc-slide">{slide}</div>
             ))}
           </div>
         </div>
 
-        {/* Prev */}
-        <button
-          onClick={() => goTo(cur - 1)}
-          aria-label="Slide trước"
-          style={{
-            position: 'absolute', left: 0, top: '50%',
-            transform: 'translateY(-50%)',
-            width: 36, height: 36, borderRadius: '50%',
-            background: '#fff', border: '1.5px solid #E5E7EB',
-            boxShadow: '0 2px 10px rgba(0,0,0,0.12)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            cursor: 'pointer', fontSize: 20, color: '#374151',
-            fontWeight: 700, zIndex: 10, lineHeight: 1, padding: 0,
-          }}
-        >‹</button>
-
-        {/* Next */}
-        <button
-          onClick={() => goTo(cur + 1)}
-          aria-label="Slide tiếp"
-          style={{
-            position: 'absolute', right: 0, top: '50%',
-            transform: 'translateY(-50%)',
-            width: 36, height: 36, borderRadius: '50%',
-            background: '#fff', border: '1.5px solid #E5E7EB',
-            boxShadow: '0 2px 10px rgba(0,0,0,0.12)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            cursor: 'pointer', fontSize: 20, color: '#374151',
-            fontWeight: 700, zIndex: 10, lineHeight: 1, padding: 0,
-          }}
-        >›</button>
+        <button className="mc-btn" onClick={() => goTo(cur + 1)} aria-label="Slide tiếp">›</button>
       </div>
 
       {/* Dots */}
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 6, marginTop: 16 }}>
+      <div className="mc-dots">
         {slides.map((_, i) => (
           <button
             key={i}
+            className="mc-dot"
             onClick={() => goTo(i)}
             aria-label={`Slide ${i + 1}`}
             style={{
-              width: i === cur ? 24 : 8, height: 8,
-              borderRadius: 4, border: 'none',
+              width: i === cur ? 24 : 8,
               background: i === cur ? accentColor : '#D1D5DB',
-              cursor: 'pointer', padding: 0,
-              transition: 'width 0.3s ease, background 0.3s ease',
             }}
           />
         ))}
       </div>
+
+      <style>{`
+        .mc-wrap { width: 100%; }
+
+        .mc-row {
+          display: flex !important;
+          align-items: center !important;
+          gap: 8px !important;
+        }
+
+        /* CSS reset + explicit style để không bị ghi đè bởi section CSS */
+        .mc-btn {
+          all: unset !important;
+          box-sizing: border-box !important;
+          flex-shrink: 0 !important;
+          width: 36px !important;
+          height: 36px !important;
+          border-radius: 50% !important;
+          background: #fff !important;
+          border: 1.5px solid #E5E7EB !important;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.12) !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          cursor: pointer !important;
+          font-size: 20px !important;
+          color: #374151 !important;
+          font-weight: 700 !important;
+          line-height: 1 !important;
+          user-select: none !important;
+        }
+        .mc-btn:active { transform: scale(0.92) !important; }
+
+        .mc-track-outer {
+          flex: 1 !important;
+          overflow: hidden !important;
+          min-width: 0 !important;
+        }
+
+        .mc-track-inner {
+          display: flex !important;
+          transition: transform 0.38s cubic-bezier(0.4,0,0.2,1) !important;
+          will-change: transform !important;
+        }
+
+        .mc-slide {
+          min-width: 100% !important;
+          width: 100% !important;
+          flex-shrink: 0 !important;
+          box-sizing: border-box !important;
+        }
+
+        .mc-dots {
+          display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
+          gap: 6px !important;
+          margin-top: 14px !important;
+        }
+
+        .mc-dot {
+          all: unset !important;
+          box-sizing: border-box !important;
+          height: 8px !important;
+          border-radius: 4px !important;
+          cursor: pointer !important;
+          transition: width 0.3s ease, background 0.3s ease !important;
+          display: inline-block !important;
+        }
+      `}</style>
     </div>
   );
 }

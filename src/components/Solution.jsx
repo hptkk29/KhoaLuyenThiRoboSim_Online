@@ -1,23 +1,5 @@
 /* Section 3 — Solution: Lý do chọn Khoá Luyện Thi RoboSim */
 
-const usps = [
-  {
-    icon: '⚙️',
-    title: 'HỌC MẸO',
-    desc: 'Không học mò mẫm',
-  },
-  {
-    icon: '🎬',
-    title: 'HỌC VIDEO',
-    desc: 'Tự xem, tự nhớ, tự làm lại',
-  },
-  {
-    icon: '🏆',
-    title: 'HỌC ĐỂ PASS',
-    desc: 'Không học cho có',
-  },
-];
-
 const compareRows = [
   {
     feature: 'Người hướng dẫn',
@@ -135,24 +117,6 @@ export default function Solution() {
               ))}
             </tbody>
           </table>
-        </div>
-
-        {/* Đoạn chốt */}
-        <div className="lp-solution__summary">
-          <p>Nói gọn:</p>
-          <p>Học free → con như mọi người → <strong>bị loại cùng mọi người</strong>.</p>
-          <p>Học khoá → con khác mọi người → <strong>vượt qua mọi người</strong>.</p>
-        </div>
-
-        {/* 3 USP icons */}
-        <div className="usp-grid" role="list">
-          {usps.map((usp) => (
-            <div key={usp.title} className="usp-card" role="listitem">
-              <span className="usp-icon" aria-hidden="true">{usp.icon}</span>
-              <div className="usp-title">{usp.title}</div>
-              <div className="usp-desc">{usp.desc}</div>
-            </div>
-          ))}
         </div>
 
         {/* CTA mềm */}
