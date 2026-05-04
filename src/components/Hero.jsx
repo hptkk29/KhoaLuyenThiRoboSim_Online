@@ -2,8 +2,8 @@
 import CompetitionRoadmap from './CompetitionRoadmap';
 import { trackAndRedirect } from '../utils/tracking';
 
-/* paddingTop 120px = TopCountdownBar(41px) + Header(68px) + 11px khoảng thở */
-const HEADER_OFFSET = 120;
+/* paddingTop 126px = TopCountdownBar(47px) + Header(68px) + 11px khoảng thở */
+const HEADER_OFFSET = 126;
 
 export default function Hero() {
   return (
@@ -111,7 +111,7 @@ export default function Hero() {
               style={{
                 flex: 1,
                 minWidth: 180,
-                background: 'linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%)',
+                background: 'linear-gradient(135deg, #F7941D 0%, #FFAD4D 100%)',
                 color: '#fff',
                 border: 'none',
                 padding: '16px 20px',
@@ -119,13 +119,13 @@ export default function Hero() {
                 fontWeight: 700,
                 fontSize: 15,
                 cursor: 'pointer',
-                boxShadow: '0 8px 24px rgba(37,99,235,0.35)',
+                boxShadow: '0 8px 24px rgba(247,148,29,0.40)',
                 transition: 'transform .2s, box-shadow .2s',
                 textAlign: 'center',
                 lineHeight: 1.4,
               }}
-              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 12px 32px rgba(37,99,235,0.45)'; }}
-              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(37,99,235,0.35)'; }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 12px 32px rgba(247,148,29,0.55)'; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(247,148,29,0.40)'; }}
             >
               🟦 Tiểu học → Bảng R1
               <span style={{ display: 'block', fontSize: 13, fontWeight: 400, opacity: 0.85, marginTop: 2 }}>490.000đ</span>
