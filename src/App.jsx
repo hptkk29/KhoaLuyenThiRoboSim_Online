@@ -1,6 +1,7 @@
 import TopCountdownBar from './components/TopCountdownBar';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import ContestInfo from './components/ContestInfo';
 import Pain from './components/Pain';
 import Solution from './components/Solution';
 import Courses from './components/Courses';
@@ -22,7 +23,8 @@ export default function App() {
 
       <main id="main-content">
         <Hero />       {/* Section 1 */}
-        <Pain />       {/* Section 2 */}
+        <ContestInfo /> {/* Section 2 — Tầm quan trọng cuộc thi */}
+        <Pain />       {/* Section 3 */}
         <Results />    {/* Section 3 — Kết quả thi thực tế */}
         <Solution />   {/* Section 4 */}
         <Courses />    {/* Section 5 — R1 vs R2 */}

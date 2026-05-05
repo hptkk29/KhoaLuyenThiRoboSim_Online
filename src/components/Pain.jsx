@@ -28,7 +28,7 @@ export default function Pain() {
       <div className="container">
         {/* Tiêu đề */}
         <h2 id="pain-heading" className="section-title text-center">
-          3 SỰ THẬT VỀ VÒNG LOẠI RBT2026 —<br />
+          3 SỰ THẬT VỀ VÒNG LOẠI ROBOTICS 2026 —<br />
           <span className="gradient-text">MÀ ÍT TRUNG TÂM DÁM NÓI VỚI BỐ MẸ</span>
         </h2>
         <p className="section-subtitle text-center">

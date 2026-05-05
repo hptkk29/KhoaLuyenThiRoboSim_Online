@@ -37,16 +37,6 @@ Bố mẹ tiết kiệm 5–10 triệu mua robot thật — mà con vẫn luyệ
 
 Khuyến nghị: học 2–3 buổi/tuần để hoàn thành 18 buổi trước ngày thi.`,
   },
-  {
-    question: '490.000đ có hoàn tiền nếu con không hài lòng không?',
-    answer: `Sata Robo cam kết:
-
-• Trong 3 ngày đầu sau đăng ký: HOÀN 100% nếu bố mẹ đổi ý — không cần lý do
-• Sau 3 ngày: hỗ trợ đổi bảng (R1↔R2) miễn phí
-• Hỗ trợ tư vấn 1:1 qua Zalo trong suốt khoá học
-
-Mình tin vào chất lượng khoá — nên cam kết rõ ràng. Bố mẹ chỉ cần thử là biết.`,
-  },
 ];
 
 export default faqs;
