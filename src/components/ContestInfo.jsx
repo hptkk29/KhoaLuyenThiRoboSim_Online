@@ -1,4 +1,5 @@
 /* Section sau Hero — Tầm quan trọng của cuộc thi Sáng tạo Robotics 2026 */
+import MobileCarousel from './MobileCarousel';
 
 const CARDS = [
   {
@@ -7,9 +8,9 @@ const CARDS = [
     body: 'Hàng chục triệu đồng và bằng khen cấp Trung ương Đoàn cho các đội xuất sắc nhất',
   },
   {
-    icon: '📋',
-    title: 'Ghi nhận trong hồ sơ học tập',
-    body: 'Thành tích được ghi vào học bạ và hồ sơ xét tuyển đại học – lợi thế cạnh tranh rõ rệt',
+    icon: '💡',
+    title: 'Định hướng tương lai công nghệ',
+    body: 'Được tiếp cận sớm với lập trình và giải quyết vấn đề — nền tảng cho các ngành công nghệ trong tương lai.',
   },
   {
     icon: '🌍',
@@ -33,6 +34,28 @@ const CARDS = [
   },
 ];
 
+/* 2 slides × 3 cards mỗi slide cho mobile carousel */
+const SLIDES = [CARDS.slice(0, 3), CARDS.slice(3, 6)];
+
+function Card({ card }) {
+  return (
+    <article className="lp-contest__card">
+      <span className="lp-contest__card-icon" aria-hidden="true">{card.icon}</span>
+      <h3 className="lp-contest__card-title">{card.title}</h3>
+      <p className="lp-contest__card-body">{card.body}</p>
+    </article>
+  );
+}
+
+function MiniCard({ card }) {
+  return (
+    <div className="lp-contest__mini-card">
+      <span className="lp-contest__mini-icon" aria-hidden="true">{card.icon}</span>
+      <p className="lp-contest__mini-title">{card.title}</p>
+    </div>
+  );
+}
+
 export default function ContestInfo() {
   return (
     <section className="lp-contest section" id="contest-info" aria-labelledby="contest-heading">
@@ -53,15 +76,24 @@ export default function ContestInfo() {
           Do Trung ương Đoàn TNCS Hồ Chí Minh tổ chức — uy tín quốc gia, tầm vóc quốc tế
         </p>
 
-        {/* 6 cards */}
-        <div className="lp-contest__grid">
+        {/* Desktop: 3×2 grid */}
+        <div className="lp-contest__grid lp-contest__desktop">
           {CARDS.map((card) => (
-            <article key={card.title} className="lp-contest__card">
-              <span className="lp-contest__card-icon" aria-hidden="true">{card.icon}</span>
-              <h3 className="lp-contest__card-title">{card.title}</h3>
-              <p className="lp-contest__card-body">{card.body}</p>
-            </article>
+            <Card key={card.title} card={card} />
           ))}
+        </div>
+
+        {/* Mobile: 2 slides × 3 mini-cards carousel */}
+        <div className="lp-contest__mobile">
+          <MobileCarousel autoInterval={3200} accentColor="#c084fc">
+            {SLIDES.map((group, i) => (
+              <div key={i} className="lp-contest__slide-row">
+                {group.map((card) => (
+                  <MiniCard key={card.title} card={card} />
+                ))}
+              </div>
+            ))}
+          </MobileCarousel>
         </div>
 
         {/* Callout highlight */}
@@ -131,11 +163,15 @@ export default function ContestInfo() {
           margin: 0 auto 48px;
         }
 
+        /* ── Desktop grid ── */
         .lp-contest__grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 20px;
           margin-bottom: 40px;
+        }
+        @media (max-width: 860px) {
+          .lp-contest__grid { grid-template-columns: 1fr 1fr; gap: 16px; }
         }
 
         .lp-contest__card {
@@ -150,13 +186,11 @@ export default function ContestInfo() {
           border-color: rgba(155, 109, 212, 0.55);
           background: rgba(155, 109, 212, 0.1);
         }
-
         .lp-contest__card-icon {
           display: block;
           font-size: 32px;
           margin-bottom: 14px;
         }
-
         .lp-contest__card-title {
           font-size: 15px;
           font-weight: 700;
@@ -164,13 +198,63 @@ export default function ContestInfo() {
           margin-bottom: 10px;
           line-height: 1.4;
         }
-
         .lp-contest__card-body {
           font-size: 14px;
           color: rgba(255, 255, 255, 0.65);
           line-height: 1.6;
         }
 
+        /* ── Mobile: ẩn/hiện ── */
+        .lp-contest__desktop { display: grid; }
+        .lp-contest__mobile  { display: none; }
+        @media (max-width: 600px) {
+          .lp-contest__desktop { display: none !important; }
+          .lp-contest__mobile  { display: block; margin-bottom: 32px; }
+        }
+
+        /* ── Slide row: 3 mini-cards ngang ── */
+        .lp-contest__slide-row {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 8px;
+          padding: 4px 2px 8px;
+        }
+
+        /* ── Mini card ── */
+        .lp-contest__mini-card {
+          background: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(155, 109, 212, 0.3);
+          border-radius: 14px;
+          padding: 16px 8px 14px;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 8px;
+          min-height: 110px;
+          justify-content: center;
+        }
+        .lp-contest__mini-icon {
+          font-size: 26px;
+          line-height: 1;
+        }
+        .lp-contest__mini-title {
+          font-size: 11px;
+          font-weight: 700;
+          color: #e9d5ff;
+          line-height: 1.4;
+          margin: 0;
+        }
+
+        /* Dots: ghi đè màu nền cho phù hợp nền tối */
+        .lp-contest__mobile .mc-dots {
+          background: rgba(255,255,255,0.06) !important;
+        }
+        .lp-contest__mobile .mc-dot {
+          background: rgba(255,255,255,0.2) !important;
+        }
+
+        /* ── Callout ── */
         .lp-contest__callout {
           background: rgba(247, 148, 29, 0.1);
           border: 1.5px solid rgba(247, 148, 29, 0.5);
@@ -185,9 +269,7 @@ export default function ContestInfo() {
           font-size: 16px;
           line-height: 1.7;
         }
-        .lp-contest__callout strong {
-          color: #fde68a;
-        }
+        .lp-contest__callout strong { color: #fde68a; }
 
         .lp-contest__cta-btn {
           display: inline-flex;
@@ -209,27 +291,10 @@ export default function ContestInfo() {
           box-shadow: 0 0 24px rgba(45, 212, 191, 0.25);
         }
 
-        @media (max-width: 860px) {
-          .lp-contest__grid {
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-          }
-        }
-
         @media (max-width: 540px) {
-          .lp-contest__grid {
-            grid-template-columns: 1fr;
-          }
-          .lp-contest__callout {
-            padding: 20px 20px;
-          }
-          .lp-contest__callout p {
-            font-size: 14px;
-          }
-          .lp-contest__cta-btn {
-            font-size: 13px;
-            padding: 13px 22px;
-          }
+          .lp-contest__callout { padding: 20px; }
+          .lp-contest__callout p { font-size: 14px; }
+          .lp-contest__cta-btn { font-size: 13px; padding: 13px 22px; }
         }
       `}</style>
     </section>
