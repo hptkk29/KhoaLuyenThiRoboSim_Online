@@ -1,5 +1,5 @@
 /* Popup ưu đãi — hiện mỗi 90 giây, đóng khi click overlay hoặc nút dismiss */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import useCountdown from '../hooks/useCountdown';
 import CountdownTimer from './CountdownTimer';
 import { getNextDeadline } from '../utils/deadlines';
@@ -11,10 +11,12 @@ export default function ExitIntentPopup() {
   const [visible, setVisible] = useState(false);
   const [closeCount, setCloseCount] = useState(0);
   const timeLeft = useCountdown(getNextDeadline());
+  const timerRef = useRef(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(true), INTERVAL_MS);
-    return () => clearTimeout(timer);
+    // Dùng ref để tránh StrictMode double-fire hủy timer
+    timerRef.current = setTimeout(() => setVisible(true), INTERVAL_MS);
+    return () => clearTimeout(timerRef.current);
   }, [closeCount]);
 
   const close = () => {

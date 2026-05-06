@@ -27,7 +27,7 @@ export function getNextDeadline() {
 export function getExamDate() {
   const now = new Date();
   const year = now.getFullYear();
-  const examThisYear = new Date(year, 6, 20, 0, 0, 0); // tháng 7 = index 6
+  const examThisYear = new Date(year, 6, 26, 0, 0, 0); // tháng 7 = index 6
   return now > examThisYear
     ? new Date(year + 1, 6, 20, 0, 0, 0)
     : examThisYear;
