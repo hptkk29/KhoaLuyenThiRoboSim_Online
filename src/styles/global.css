@@ -1272,8 +1272,20 @@ footer address h4 { font-size: 14px; font-weight: 700; letter-spacing: .5px; tex
 }
 @media (max-width: 600px) {
   .lp-vs__badge { margin: 0 auto; }
-  .lp-vs__price--highlight { font-size: 34px; }
-  .lp-vs__bubble { font-size: 22px; }
+  .lp-vs__price--highlight { font-size: 30px; }
+  .lp-vs__bubble { font-size: 20px; }
+  /* Closer block — thu gọn trên mobile */
+  .lp-courses__closer { margin-top: 32px; padding: 24px 18px; }
+  .lp-courses__closer h3 { font-size: 17px; margin-bottom: 10px; }
+  .lp-courses__closer p:not([class]) { font-size: 13px; line-height: 1.6; margin-bottom: 6px; }
+  /* VS widget — compact hơn */
+  .lp-vs { padding: 20px 14px; }
+  .lp-vs__left, .lp-vs__right { gap: 6px; }
+  .lp-vs__label { font-size: 14px; }
+  .lp-vs__price { font-size: 26px; }
+  .lp-vs__sub, .lp-vs__feature { font-size: 12px; line-height: 1.45; }
+  .lp-vs__mascot img { width: 52px; height: 52px; }
+  .lp-vs__bubbles { gap: 4px; }
 }
 
 .lp-courses__support {
