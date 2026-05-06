@@ -11,6 +11,7 @@ import FinalCTA from './components/FinalCTA';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import FloatingButtons from './components/FloatingButtons';
+import ExitIntentPopup from './components/ExitIntentPopup';
 
 export default function App() {
   return (
@@ -37,6 +38,9 @@ export default function App() {
 
       {/* Floating CTA buttons — fixed bottom-right */}
       <FloatingButtons />
+
+      {/* Popup ưu đãi — hiện mỗi 90 giây */}
+      <ExitIntentPopup />
     </>
   );
 }
