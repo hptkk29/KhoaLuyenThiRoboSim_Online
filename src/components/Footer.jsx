@@ -17,7 +17,7 @@ export default function Footer() {
               width="72"
               height="72"
             />
-            <p>
+            <p className="footer-brand__desc">
               Sata Robo — Đơn vị luyện thi Robotics chuyên biệt.<br />
               Khoá Luyện Thi RBT2026 dành cho học sinh Tiểu học và THCS toàn quốc.
             </p>
@@ -79,7 +79,7 @@ export default function Footer() {
                   <span className="fi">✉️</span> satarobo@gmail.com
                 </a>
               </li>
-              <li>
+              <li className="footer-hide-mobile">
                 <a
                   href="https://maps.google.com/?q=258+Lê+Thanh+Nghị,+Đà+Nẵng"
                   target="_blank"
