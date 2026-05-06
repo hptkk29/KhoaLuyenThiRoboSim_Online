@@ -1,5 +1,5 @@
 /* Section — Phụ huynh và học sinh nói gì */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MobileCarousel from './MobileCarousel';
 
 const items = [
@@ -11,7 +11,6 @@ const items = [
     quote:
       '"Con học 3 tuần, từ chỗ không biết bắt đầu từ đâu đến khi thi thử đạt 85% điểm. Điều tôi thích nhất là AI chấm bài ngay — tôi biết chắc con hiểu bài trước khi học tiếp, khác hoàn toàn so với xem YouTube."',
     videoId: 'anInoYFGrF0',
-    videoUrl: 'https://youtu.be/anInoYFGrF0',
     avatarBg: '#5B2D8E',
   },
   {
@@ -22,7 +21,6 @@ const items = [
     quote:
       '"Ban đầu lo con học online không hiệu quả. Nhưng 27.000 đồng mỗi buổi — rẻ hơn cả nửa cốc trà sữa — mà con tiến bộ rõ rệt sau 2 tuần. Con học hào hứng và làm được bài tập thực hành rất tốt."',
     videoId: 'bqB2c7AlSfE',
-    videoUrl: 'https://youtu.be/bqB2c7AlSfE',
     avatarBg: '#7C3AED',
   },
   {
@@ -33,12 +31,11 @@ const items = [
     quote:
       '"Con thi Robotics năm ngoái không vào được vòng chung kết vì không có chiến lược. Năm nay học khóa này, con tự làm được bài tập và hiểu rõ cách sắp xếp thứ tự nhiệm vụ. Tự tin hơn hẳn khi bước vào phòng thi!"',
     videoId: '9MJFC4v8cbU',
-    videoUrl: 'https://youtu.be/9MJFC4v8cbU',
     avatarBg: '#3D1A6E',
   },
 ];
 
-function TestiCard({ item, onVideoClick }) {
+function TestiCard({ item, onPlay }) {
   return (
     <article className="lp-testi__card" aria-label={`Đánh giá từ ${item.name}`}>
       <div className="lp-testi__stars" aria-label="5 sao">★★★★★</div>
@@ -46,11 +43,7 @@ function TestiCard({ item, onVideoClick }) {
       <p className="lp-testi__quote">{item.quote}</p>
 
       <div className="lp-testi__author">
-        <div
-          className="lp-testi__avatar"
-          style={{ background: item.avatarBg }}
-          aria-hidden="true"
-        >
+        <div className="lp-testi__avatar" style={{ background: item.avatarBg }} aria-hidden="true">
           {item.initials}
         </div>
         <div>
@@ -59,17 +52,15 @@ function TestiCard({ item, onVideoClick }) {
         </div>
       </div>
 
-      <a
-        href={item.videoUrl}
-        target="_blank"
-        rel="noopener noreferrer"
+      <button
+        type="button"
         className="lp-testi__video"
-        aria-label={`Xem video cảm nhận của ${item.name} trên YouTube`}
-        onClick={onVideoClick}
+        onClick={() => onPlay(item.videoId)}
+        aria-label={`Phát video cảm nhận của ${item.name}`}
       >
         <img
           src={`https://img.youtube.com/vi/${item.videoId}/hqdefault.jpg`}
-          alt={`Video cảm nhận của ${item.name}`}
+          alt={`Ảnh thumbnail video của ${item.name}`}
           className="lp-testi__thumb"
           loading="lazy"
           width="480"
@@ -81,14 +72,53 @@ function TestiCard({ item, onVideoClick }) {
           </svg>
         </div>
         <span className="lp-testi__video-caption">Bấm để xem</span>
-      </a>
+      </button>
     </article>
   );
 }
 
+function VideoModal({ videoId, onClose }) {
+  /* Đóng bằng phím Escape */
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [onClose]);
+
+  return (
+    <div
+      className="lp-testi-modal-overlay"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Video cảm nhận học viên"
+    >
+      <div className="lp-testi-modal" onClick={(e) => e.stopPropagation()}>
+        <button
+          type="button"
+          className="lp-testi-modal__close"
+          onClick={onClose}
+          aria-label="Đóng video"
+        >
+          ×
+        </button>
+        <div className="lp-testi-modal__ratio">
+          <iframe
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`}
+            title="Video cảm nhận học viên Sata Robo"
+            allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Testimonials() {
-  const [videoClicked, setVideoClicked] = useState(false);
-  const handleVideoClick = () => setVideoClicked(true);
+  const [activeVideo, setActiveVideo] = useState(null);
+  const openVideo  = (videoId) => setActiveVideo(videoId);
+  const closeVideo = () => setActiveVideo(null);
 
   return (
     <section className="lp-testi" id="testimonials" aria-labelledby="testi-heading">
@@ -110,19 +140,22 @@ export default function Testimonials() {
         {/* Desktop: 3-col grid */}
         <div className="lp-testi__grid">
           {items.map((item) => (
-            <TestiCard key={item.id} item={item} onVideoClick={handleVideoClick} />
+            <TestiCard key={item.id} item={item} onPlay={openVideo} />
           ))}
         </div>
 
-        {/* Mobile: swipe carousel — dừng auto khi video bị bấm */}
+        {/* Mobile: swipe carousel — dừng auto khi modal video đang mở */}
         <div className="lp-testi__carousel">
-          <MobileCarousel autoInterval={4500} accentColor="#9B6DD4" isPaused={videoClicked}>
+          <MobileCarousel autoInterval={4500} accentColor="#9B6DD4" isPaused={activeVideo !== null}>
             {items.map((item) => (
-              <TestiCard key={item.id} item={item} onVideoClick={handleVideoClick} />
+              <TestiCard key={item.id} item={item} onPlay={openVideo} />
             ))}
           </MobileCarousel>
         </div>
       </div>
+
+      {/* Video modal — chỉ render khi có video đang mở */}
+      {activeVideo && <VideoModal videoId={activeVideo} onClose={closeVideo} />}
     </section>
   );
 }
