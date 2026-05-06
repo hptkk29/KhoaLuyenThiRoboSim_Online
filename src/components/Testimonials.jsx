@@ -123,7 +123,7 @@ export default function Testimonials() {
   return (
     <section className="lp-testi" id="testimonials" aria-labelledby="testi-heading">
       <div className="container">
-        <div className="lp-testi__badge" aria-hidden="true">
+        <div className="lp-testi__badge text-center" aria-hidden="true">
           <span className="lp-testi__badge-dot" />
           PHỤ HUYNH VÀ HỌC SINH NÓI GÌ
         </div>
