@@ -12,6 +12,7 @@ import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import FloatingButtons from './components/FloatingButtons';
 import ExitIntentPopup from './components/ExitIntentPopup';
+import Testimonials from './components/Testimonials';
 
 export default function App() {
   return (
@@ -29,8 +30,9 @@ export default function App() {
         <Results />    {/* Section 3 — Kết quả thi thực tế */}
         <Solution />   {/* Section 4 */}
         <Courses />    {/* Section 5 — R1 vs R2 */}
-        <Roadmap />    {/* Section 6 — 18 buổi 3 chặng */}
-        <FinalCTA />   {/* Section 7 — CTA cuối (đặt TRƯỚC FAQ) */}
+        <Roadmap />       {/* Section 6 — 18 buổi 3 chặng */}
+        <Testimonials />  {/* Section 7 — Phụ huynh & học sinh nói gì */}
+        <FinalCTA />      {/* Section 8 — CTA cuối (đặt TRƯỚC FAQ) */}
         <FAQ />        {/* Section 8 — FAQ (đặt SAU CTA cuối) */}
       </main>
 
