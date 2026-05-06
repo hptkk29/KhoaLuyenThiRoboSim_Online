@@ -3,7 +3,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 
 const SWIPE_THRESHOLD = 40; // px tối thiểu để tính là vuốt
 
-export default function MobileCarousel({ children, autoInterval = 3500, accentColor = '#F97316' }) {
+export default function MobileCarousel({ children, autoInterval = 3500, accentColor = '#F97316', isPaused = false }) {
   const slides = Array.isArray(children) ? children : [children];
   const n = slides.length;
   const [cur, setCur] = useState(0);
@@ -14,16 +14,21 @@ export default function MobileCarousel({ children, autoInterval = 3500, accentCo
   const touchStartX = useRef(null);
   const touchStartY = useRef(null);
 
-  /* ── Auto-advance ── */
+  /* ── Auto-advance — dừng khi isPaused ── */
   const startTimer = useCallback(() => {
     clearInterval(timerRef.current);
+    if (isPaused) return;
     timerRef.current = setInterval(() => setCur(c => (c + 1) % n), autoInterval);
-  }, [n, autoInterval]);
+  }, [n, autoInterval, isPaused]);
 
   useEffect(() => {
+    if (isPaused) {
+      clearInterval(timerRef.current);
+      return;
+    }
     startTimer();
     return () => clearInterval(timerRef.current);
-  }, [startTimer]);
+  }, [startTimer, isPaused]);
 
   const goTo = useCallback((idx) => {
     setCur(((idx % n) + n) % n);

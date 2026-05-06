@@ -1,4 +1,6 @@
 /* Section — Phụ huynh và học sinh nói gì */
+import { useState } from 'react';
+import MobileCarousel from './MobileCarousel';
 
 const items = [
   {
@@ -36,11 +38,61 @@ const items = [
   },
 ];
 
+function TestiCard({ item, onVideoClick }) {
+  return (
+    <article className="lp-testi__card" aria-label={`Đánh giá từ ${item.name}`}>
+      <div className="lp-testi__stars" aria-label="5 sao">★★★★★</div>
+
+      <p className="lp-testi__quote">{item.quote}</p>
+
+      <div className="lp-testi__author">
+        <div
+          className="lp-testi__avatar"
+          style={{ background: item.avatarBg }}
+          aria-hidden="true"
+        >
+          {item.initials}
+        </div>
+        <div>
+          <div className="lp-testi__name">{item.name}</div>
+          <div className="lp-testi__role">{item.role}</div>
+        </div>
+      </div>
+
+      <a
+        href={item.videoUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="lp-testi__video"
+        aria-label={`Xem video cảm nhận của ${item.name} trên YouTube`}
+        onClick={onVideoClick}
+      >
+        <img
+          src={`https://img.youtube.com/vi/${item.videoId}/hqdefault.jpg`}
+          alt={`Video cảm nhận của ${item.name}`}
+          className="lp-testi__thumb"
+          loading="lazy"
+          width="480"
+          height="360"
+        />
+        <div className="lp-testi__play" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </div>
+        <span className="lp-testi__video-caption">Bấm để xem</span>
+      </a>
+    </article>
+  );
+}
+
 export default function Testimonials() {
+  const [videoClicked, setVideoClicked] = useState(false);
+  const handleVideoClick = () => setVideoClicked(true);
+
   return (
     <section className="lp-testi" id="testimonials" aria-labelledby="testi-heading">
       <div className="container">
-        {/* Badge */}
         <div className="lp-testi__badge" aria-hidden="true">
           <span className="lp-testi__badge-dot" />
           PHỤ HUYNH VÀ HỌC SINH NÓI GÌ
@@ -55,55 +107,20 @@ export default function Testimonials() {
           Cảm nhận thực tế từ phụ huynh và học sinh đã trải qua hành trình luyện thi cùng Sata Robo
         </p>
 
+        {/* Desktop: 3-col grid */}
         <div className="lp-testi__grid">
           {items.map((item) => (
-            <article key={item.id} className="lp-testi__card" aria-label={`Đánh giá từ ${item.name}`}>
-              {/* Stars */}
-              <div className="lp-testi__stars" aria-label="5 sao">★★★★★</div>
-
-              {/* Quote */}
-              <p className="lp-testi__quote">{item.quote}</p>
-
-              {/* Author */}
-              <div className="lp-testi__author">
-                <div
-                  className="lp-testi__avatar"
-                  style={{ background: item.avatarBg }}
-                  aria-hidden="true"
-                >
-                  {item.initials}
-                </div>
-                <div>
-                  <div className="lp-testi__name">{item.name}</div>
-                  <div className="lp-testi__role">{item.role}</div>
-                </div>
-              </div>
-
-              {/* Video thumbnail */}
-              <a
-                href={item.videoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="lp-testi__video"
-                aria-label={`Xem video cảm nhận của ${item.name} trên YouTube`}
-              >
-                <img
-                  src={`https://img.youtube.com/vi/${item.videoId}/hqdefault.jpg`}
-                  alt={`Video cảm nhận của ${item.name}`}
-                  className="lp-testi__thumb"
-                  loading="lazy"
-                  width="480"
-                  height="360"
-                />
-                <div className="lp-testi__play" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-                <span className="lp-testi__video-caption">Bấm để xem</span>
-              </a>
-            </article>
+            <TestiCard key={item.id} item={item} onVideoClick={handleVideoClick} />
           ))}
+        </div>
+
+        {/* Mobile: swipe carousel — dừng auto khi video bị bấm */}
+        <div className="lp-testi__carousel">
+          <MobileCarousel autoInterval={4500} accentColor="#9B6DD4" isPaused={videoClicked}>
+            {items.map((item) => (
+              <TestiCard key={item.id} item={item} onVideoClick={handleVideoClick} />
+            ))}
+          </MobileCarousel>
         </div>
       </div>
     </section>
