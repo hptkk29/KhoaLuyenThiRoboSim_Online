@@ -96,16 +96,6 @@ export default function ContestInfo() {
           </MobileCarousel>
         </div>
 
-        {/* Callout highlight */}
-        <div className="lp-contest__callout">
-          <p>
-            <strong>🎯 Vòng loại thi trực tuyến qua phần mềm RoboSim.</strong>
-            <br />
-            Học sinh nào luyện tập bài bản, đúng lộ trình sẽ có lợi thế vượt trội so với các
-            đối thủ chưa được chuẩn bị kỹ càng.
-          </p>
-        </div>
-
         {/* CTA Button */}
         <div className="text-center" style={{ marginTop: '32px' }}>
           <a
