@@ -2576,9 +2576,9 @@ footer {
 ════════════════════════════════════════════ */
 .lp-howtobuy {
   background:
-    radial-gradient(ellipse 70% 55% at 10% 20%, rgba(247,148,29,.07) 0%, transparent 55%),
-    radial-gradient(ellipse 60% 50% at 90% 80%, rgba(91,45,142,.07) 0%, transparent 52%),
-    #F7F3FD;
+    radial-gradient(ellipse 55% 65% at 0% 50%, rgba(255,140,0,.13) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 65% at 100% 50%, rgba(155,109,212,.11) 0%, transparent 55%),
+    #FFFBF5;
 }
 
 .lp-howtobuy__badge {
