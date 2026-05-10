@@ -12,6 +12,7 @@ import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import FloatingButtons from './components/FloatingButtons';
 import ExitIntentPopup from './components/ExitIntentPopup';
+import HowToBuy from './components/HowToBuy';
 import Testimonials from './components/Testimonials';
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
         <Hero />       {/* Section 1 */}
         <ContestInfo /> {/* Section 2 — Tầm quan trọng cuộc thi */}
         <Pain />       {/* Section 3 */}
+        <HowToBuy />   {/* Section — Hướng dẫn mua & bắt đầu học */}
         <Results />    {/* Section 3 — Kết quả thi thực tế */}
         <Solution />   {/* Section 4 */}
         <Courses />    {/* Section 5 — R1 vs R2 */}
