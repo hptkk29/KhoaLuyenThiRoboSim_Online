@@ -99,7 +99,7 @@ export default function ContestInfo() {
         {/* CTA Button */}
         <div className="text-center" style={{ marginTop: '32px' }}>
           <a
-            href="https://drive.google.com/drive/folders/12DTFji_NWDg_i3d1SGgjKKp8vxjF1seL?usp=drive_link"
+            href="https://drive.google.com/file/d/1uRxj0k95PyK0fgFlNQBIl2766Dq_8Pll/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="lp-contest__cta-btn"
