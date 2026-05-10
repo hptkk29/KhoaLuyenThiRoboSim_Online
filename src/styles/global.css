@@ -2576,16 +2576,15 @@ footer {
 ════════════════════════════════════════════ */
 .lp-howtobuy {
   background:
-    radial-gradient(ellipse 70% 55% at 15% 25%, rgba(91,45,142,.38) 0%, transparent 58%),
-    radial-gradient(ellipse 55% 45% at 85% 75%, rgba(247,148,29,.13) 0%, transparent 52%),
-    linear-gradient(150deg, #120628 0%, #1b0a38 50%, #0e0420 100%);
-  color: #fff;
+    radial-gradient(ellipse 70% 55% at 10% 20%, rgba(247,148,29,.07) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 90% 80%, rgba(91,45,142,.07) 0%, transparent 52%),
+    #F7F3FD;
 }
 
 .lp-howtobuy__badge {
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(155,109,212,.18); border: 1px solid rgba(155,109,212,.45);
-  color: #c9a8f5; font-size: 12px; font-weight: 700; letter-spacing: .8px;
+  background: rgba(91,45,142,.10); border: 1px solid rgba(91,45,142,.28);
+  color: var(--purple); font-size: 12px; font-weight: 700; letter-spacing: .8px;
   padding: 7px 18px; border-radius: 100px;
   text-transform: uppercase; margin-bottom: 22px;
 }
@@ -2593,7 +2592,7 @@ footer {
 .lp-howtobuy__title {
   font-size: clamp(24px, 4vw, 38px);
   font-weight: 900; line-height: 1.2;
-  color: #fff;
+  color: var(--text-primary);
   margin-bottom: 16px;
   display: flex; flex-direction: column; align-items: center; gap: 6px;
 }
@@ -2602,14 +2601,14 @@ footer {
   display: block;
   font-size: clamp(22px, 3.5vw, 34px);
   font-weight: 800;
-  background: linear-gradient(135deg, #B87AFF 0%, #D87EFF 50%, #9B6DD4 100%);
+  background: linear-gradient(135deg, var(--purple) 0%, #9B6DD4 50%, #B87AFF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .lp-howtobuy__subtitle {
-  color: rgba(255,255,255,.6);
+  color: var(--text-secondary);
   font-size: 16px; line-height: 1.7;
   max-width: 600px; margin: 0 auto 44px;
 }
@@ -2619,11 +2618,11 @@ footer {
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow:
-    0 0 0 1px rgba(155,109,212,.28),
-    0 28px 80px rgba(10,4,22,.65);
+    0 0 0 1px rgba(91,45,142,.16),
+    0 16px 56px rgba(91,45,142,.18);
   aspect-ratio: 16 / 9;
   position: relative;
-  background: #1a1128;
+  background: #e8e0f5;
 }
 
 .lp-howtobuy__iframe {
@@ -2646,34 +2645,30 @@ footer {
   position: absolute; top: 50%; left: 50%;
   transform: translate(-50%, -58%);
   width: 72px; height: 72px; border-radius: 50%;
-  background: rgba(255,255,255,.95);
-  color: var(--purple); font-size: 26px;
+  background: linear-gradient(135deg, var(--purple), var(--blue));
+  color: #fff; font-size: 26px;
   display: flex; align-items: center; justify-content: center;
   padding-left: 5px;
-  box-shadow: 0 8px 36px rgba(10,4,22,.6), 0 0 0 6px rgba(255,255,255,.18);
+  box-shadow: 0 8px 36px rgba(91,45,142,.45), 0 0 0 6px rgba(255,255,255,.5);
   transition: transform .2s, box-shadow .2s;
   pointer-events: none;
 }
 
 .lp-howtobuy__thumb:hover .lp-howtobuy__play {
   transform: translate(-50%, -58%) scale(1.1);
-  box-shadow: 0 12px 48px rgba(10,4,22,.7), 0 0 0 8px rgba(255,255,255,.22);
+  box-shadow: 0 12px 48px rgba(91,45,142,.55), 0 0 0 8px rgba(255,255,255,.65);
 }
 
 .lp-howtobuy__thumb-caption {
   position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(0deg, rgba(10,4,22,.92) 0%, transparent 100%);
+  background: linear-gradient(0deg, rgba(18,6,40,.88) 0%, transparent 100%);
   padding: 32px 24px 18px;
   text-align: center;
   pointer-events: none;
 }
 
 .lp-howtobuy__thumb-caption p {
-  color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 5px;
-}
-
-.lp-howtobuy__thumb-caption span {
-  color: rgba(255,255,255,.52); font-size: 12px;
+  color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 0;
 }
 
 .lp-howtobuy__steps {
@@ -2682,9 +2677,10 @@ footer {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 14px 32px;
   padding: 24px 32px;
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(155,109,212,.22);
+  background: #fff;
+  border: 1px solid rgba(91,45,142,.14);
   border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .lp-howtobuy__step {
@@ -2701,7 +2697,7 @@ footer {
 }
 
 .lp-howtobuy__step-label {
-  color: rgba(255,255,255,.78); font-size: 13.5px; font-weight: 500; line-height: 1.4;
+  color: var(--text-primary); font-size: 13.5px; font-weight: 500; line-height: 1.4;
 }
 
 @media (max-width: 640px) {
