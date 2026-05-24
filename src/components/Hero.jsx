@@ -160,7 +160,6 @@ export default function Hero() {
           {/* Trust badges */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6, fontSize: 13, color: '#6B7280' }}>
             <span>⏰ Ưu đãi GIẢM đến 45%.</span>
-            <span>⭐ 100% Học viên tại SataRobo đã <strong>PASS</strong> qua vòng loại.</span>
           </div>
         </div>
 
